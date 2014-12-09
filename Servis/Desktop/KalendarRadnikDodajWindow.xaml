@@ -1,0 +1,116 @@
+﻿<Window x:Class="Desktop.KalendarRadnikDodajWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity" 
+        Title="KalendarRadnikDodajWindow" Height="581" Width="507" WindowStartupLocation="CenterScreen" Topmost="True">
+    <Window.Resources>
+        <Thickness x:Key="tbMargin">20,0,0,0</Thickness>
+        <Thickness x:Key="tbMargin2">10,0,0,0</Thickness>
+    </Window.Resources>
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding Path=DataContext.PopuniComboKorisnika1, ElementName=cmbBenutzer}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="48" />
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="186" />
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="17*"/>
+        </Grid.RowDefinitions>
+        <StackPanel HorizontalAlignment="Left" Height="30" Margin="10,10,0,0" VerticalAlignment="Top" Width="479" Grid.Row="2">
+            <ComboBox x:Name="cmbBenutzer" ItemsSource="{Binding ListaKorisnika}" SelectedItem="{Binding Path=DataContext.SelektovaniKorisnik, ElementName=cmbBenutzer}" SelectedIndex="0" Cursor="Hand" Height="28">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock>
+                            <Run Text="{Binding ime}" />
+                            <Run Text="{Binding prezime}" />
+                        </TextBlock>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" Height="30" Margin="10,10,0,0" Grid.Row="3" VerticalAlignment="Top" Width="484" Orientation="Horizontal" >
+            <DatePicker Width="200" Cursor="Hand" SelectedDate="{Binding Datum, Mode=TwoWay, ValidatesOnDataErrors=True, NotifyOnValidationError=True,ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}" 
+                        DisplayDateStart="1930-01-01" DisplayDateEnd="2020-12-31"/>
+            <Label>H:</Label>
+            <ComboBox Width="50" Cursor="Hand" ItemsSource="{Binding Path=ListaSati}" SelectedIndex="0" SelectedItem="{Binding Sat}"></ComboBox>
+            <Label>m:</Label>
+            <ComboBox Width="50" Cursor="Hand" ItemsSource="{Binding Path=ListaMinuta}" SelectedIndex="0" SelectedItem="{Binding Minuta}"></ComboBox>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" Height="30" Margin="10,10,0,0" Grid.Row="4" VerticalAlignment="Top" Width="479" Orientation="Horizontal">
+            <DatePicker Width="200" Cursor="Hand" SelectedDate="{Binding Datum1, Mode=TwoWay, ValidatesOnDataErrors=True, NotifyOnValidationError=True,ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}"/>
+            <Label>H:</Label>
+            <ComboBox Width="50" Cursor="Hand" ItemsSource="{Binding Path=ListaSati}" SelectedIndex="0" SelectedItem="{Binding Sat1}"></ComboBox>
+            <Label>m:</Label>
+            <ComboBox Width="50" Cursor="Hand" ItemsSource="{Binding Path=ListaMinuta}" SelectedIndex="0" SelectedItem="{Binding Minuta1}"></ComboBox>
+        </StackPanel>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Height="30" Margin="10,10,0,0" Grid.Row="5" Width="479" Orientation="Horizontal">
+            <RadioButton Cursor="Hand" IsChecked="{Binding RadioTip1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                <StackPanel Orientation="Horizontal" ClipToBounds="True">
+                    <Image  Source="ikone/Boja1.png" Width="25" Height="25" />
+                </StackPanel>
+            </RadioButton>
+            <RadioButton Cursor="Hand" IsChecked="{Binding RadioTip2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                <StackPanel Orientation="Horizontal" ClipToBounds="True">
+                    <Image  Source="ikone/Boja2.png" Width="25" Height="25" />
+                </StackPanel>
+            </RadioButton>
+            <RadioButton Cursor="Hand" IsChecked="{Binding RadioTip3, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                <StackPanel Orientation="Horizontal" ClipToBounds="True">
+                    <Image  Source="ikone/Boja3.png" Width="25" Height="25" />
+                </StackPanel>
+            </RadioButton>
+            <StackPanel.Resources>
+                <Style TargetType="{x:Type RadioButton}">
+                    <Setter Property="Margin" Value="{StaticResource tbMargin}"/>
+                </Style>
+            </StackPanel.Resources>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" Height="166" Margin="10,10,0,0" Grid.Row="6" VerticalAlignment="Top" Width="479" Orientation="Horizontal">
+            <TextBox Height="146" Margin="10,10,10,0" Width="464" VerticalAlignment="Top" Text="{Binding Text}"></TextBox>
+
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" Height="30" Margin="10,10,0,0" Grid.Row="7" VerticalAlignment="Top" Width="479" Orientation="Horizontal" >
+
+            <Button FontWeight="Bold" Command="{Binding IzvrsiUnos}" Click="Button_Click_1">Speichern</Button>
+            <Button Click="Button_Click" >Abbrechen</Button>
+            <StackPanel.Resources>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Margin" Value="{StaticResource tbMargin2}"/>
+                </Style>
+            </StackPanel.Resources>
+
+        </StackPanel>
+        <Separator HorizontalAlignment="Left" Height="5" Margin="10,45,0,0" Grid.Row="2" VerticalAlignment="Top" Width="479"/>
+        <Separator HorizontalAlignment="Left" Height="5" Margin="10,45,0,0" Grid.Row="1" VerticalAlignment="Top" Width="479"/>
+        <Separator HorizontalAlignment="Left" Height="5" Margin="10,45,0,0" Grid.Row="3" VerticalAlignment="Top" Width="479"/>
+        <Separator HorizontalAlignment="Left" Height="5" Margin="10,45,0,0" Grid.Row="4" VerticalAlignment="Top" Width="479"/>
+        <Separator HorizontalAlignment="Left" Height="5" Margin="10,45,0,0" Grid.Row="5" VerticalAlignment="Top" Width="479"/>
+        <Separator HorizontalAlignment="Left" Height="5" Margin="10,0,0,0" Grid.Row="7" VerticalAlignment="Top" Width="479"/>
+        <Separator HorizontalAlignment="Left" Height="5" Margin="10,45,0,0" Grid.Row="0" VerticalAlignment="Top" Width="479"/>
+        <StackPanel HorizontalAlignment="Left" Height="33" Margin="10,7,0,0" Grid.Row="1" VerticalAlignment="Top" Width="479" Orientation="Horizontal">
+            <Image  Source="ikone/Boja1.png" Width="25" Height="25" />
+            <Label>Urlaub</Label>
+            <Image  Source="ikone/Boja2.png" Width="25" Height="25" />
+            <Label>Krank</Label>
+            <Image  Source="ikone/Boja3.png" Width="25" Height="25" />
+            <Label>Abwesend</Label>
+            <StackPanel.Resources>
+                <Style TargetType="{x:Type Image}">
+                    <Setter Property="Margin" Value="{StaticResource tbMargin2}"/>
+                </Style>
+            </StackPanel.Resources>
+        </StackPanel>
+
+    </Grid>
+</Window>

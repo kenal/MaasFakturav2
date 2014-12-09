@@ -1,0 +1,79 @@
+﻿<Window x:Class="Desktop.RechBaustellen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="RechBaustellen" Width="1024" MinWidth="900" MinHeight="600" Height="600" SizeToContent="WidthAndHeight" SizeChanged="Window_SizeChanged" WindowStartupLocation="CenterScreen" >
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <!--Row 01-->
+        <Grid Background="#E0E0E0" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0">
+            <Image Source="images/icons/iconAngebot.png" Height="30" HorizontalAlignment="Left" />
+            <Label Content="Rechnung fur Baustellen" FontWeight="Bold" FontSize="16" Margin="30,-3,0,0" />
+        </Grid>
+        <Grid Grid.Column="0" Grid.Row="1" Height="40" Margin="10,0,0,0">
+            <Button Content="Kartei" Name="btnKartei" Width="100" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,8,0,0" Click="btnKartei_Click" Cursor="Hand">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#5A5A5A" Offset="1"/>
+                        <GradientStop Color="White"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button Content="Liste" Name="btnListe" Width="100" Height="30" Panel.ZIndex="10" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="110,8,0,0" Click="btnListe_Click" Cursor="Hand">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#5A5A5A" Offset="1"/>
+                        <GradientStop Color="White"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+        </Grid>
+        <Grid Name="grdKartei" Background="#C0C0C0" Grid.Column="0" Panel.ZIndex="10" Grid.Row="2" Margin="10">
+            <Label Content="Rechnungs Nr:" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="-100,10,200,0" FontSize="14" />
+            <TextBox Height="30" Width="200" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="100,10,0,0"/>
+            <Label Content="Kunden Nr:" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="-115,50,200,0" FontSize="14" />
+            <TextBox Height="30" Width="200" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="100,50,0,0"/>
+            <Label Content="Name:" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="-145,90,200,0" FontSize="14" />
+            <TextBox Height="30" Width="200" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="100,90,0,0"/>
+            <Label Content="Name 2/Firma:" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="-95,130,200,0" FontSize="14" />
+            <TextBox Height="30" Width="200" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="100,130,0,0"/>
+            <Label Content="Rechnungdresse:" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="-80,170,200,0" FontSize="14" />
+            <TextBox Height="30" Width="200" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="100,170,0,0"/>
+            <Label Content="E-Mail:" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="-145,210,200,0" FontSize="14" />
+            <TextBox Height="30" Width="200" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="100,210,0,0"/>
+            <Label Content="Text:" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="-155,250,200,0" FontSize="14" />
+            <TextBox Height="30" Width="200" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="100,250,0,0"/>
+            <Label Content="Steuer:" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="-145,290,200,0" FontSize="14" />
+            <RadioButton Content="inkl." VerticalAlignment="Top" HorizontalAlignment="Center" Margin="-60,300,0,0" Cursor="Hand"/>
+            <RadioButton Content="zzgl." VerticalAlignment="Top" HorizontalAlignment="Center" Margin="50,300,0,0" Cursor="Hand"/>
+            <RadioButton Content="ohne" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="170,300,0,0" Cursor="Hand"/>
+        </Grid>
+        <Grid Name="grdListe" Background="#C0C0C0" Grid.Column="0" Grid.Row="2" Margin="10">
+            <DataGrid x:Name="datagrid1" Grid.Column="1" Grid.Row="1" Grid.RowSpan="4"  x:Uid="datagrid1" SelectionMode="Single" Background="#FFFFFF" RowHeight="30" ItemsSource="{Binding}" AutoGenerateColumns="False" FontStretch="Expanded" FontSize="14" CanUserAddRows="False" >
+                <DataGrid.AlternatingRowBackground>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFFFFF" Offset="0"/>
+                        <GradientStop Color="#D6D6D6" Offset="1"/>
+                        <GradientStop Color="#D6D6D6" Offset="0.5"/>
+                    </LinearGradientBrush>
+                </DataGrid.AlternatingRowBackground>
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding val1}" Width="*"  Header="Rechnungs Nr" x:Name="col1_1" IsReadOnly="True"/>
+                    <DataGridTextColumn Binding="{Binding val2}" Width="*" Header="Kunden Nr" x:Name="col1_2"/>
+                    <DataGridTextColumn Binding="{Binding val3}" Width="*" Header="Kunden" x:Name="col1_3"/>
+                    <DataGridTextColumn Binding="{Binding val4}" Width="*" Header="Adresse" x:Name="col1_4"/>
+                    <DataGridTextColumn Binding="{Binding val5}" Width="*" Header="Telefon" x:Name="col1_5"/>
+                    <DataGridTextColumn Binding="{Binding val6}" Width="*" Header="E-Mail" x:Name="col1_6"/>
+                    <DataGridTextColumn Binding="{Binding val7}" Width="*" Header="Aktionen" x:Name="col1_7"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+    </Grid>
+</Window>
+

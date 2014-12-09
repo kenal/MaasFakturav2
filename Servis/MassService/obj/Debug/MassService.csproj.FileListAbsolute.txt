@@ -1,0 +1,8 @@
+C:\Users\PC\Source\Repos\faktura2\Servis\MassService\bin\MassService.dll.config
+C:\Users\PC\Source\Repos\faktura2\Servis\MassService\bin\MassService.dll
+C:\Users\PC\Source\Repos\faktura2\Servis\MassService\bin\MassService.pdb
+C:\Users\PC\Source\Repos\faktura2\Servis\MassService\bin\Mass.Data.dll
+C:\Users\PC\Source\Repos\faktura2\Servis\MassService\bin\Mass.Data.pdb
+C:\Users\PC\Source\Repos\faktura2\Servis\MassService\obj\Debug\MassService.csprojResolveAssemblyReference.cache
+C:\Users\PC\Source\Repos\faktura2\Servis\MassService\obj\Debug\MassService.dll
+C:\Users\PC\Source\Repos\faktura2\Servis\MassService\obj\Debug\MassService.pdb

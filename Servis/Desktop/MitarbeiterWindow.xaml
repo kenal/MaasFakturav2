@@ -1,0 +1,574 @@
+﻿<Window x:Class="MassProject.MitarbeiterWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"  
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+      
+       xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" 
+         xmlns:local="clr-namespace:Desktop.HelperClass"
+        x:Name="Window"
+        Title="MainWindow" Height="952" MinWidth="1024" Width="1310.269" SizeToContent="WidthAndHeight" SizeChanged="Window_SizeChanged" WindowStartupLocation="CenterScreen">
+   
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding Path=DataContext.PopuniGridListomRadnika, ElementName=Window}"/>
+            <i:InvokeCommandAction Command="{Binding Path=DataContext.PopuniComboKorisnika1, ElementName=Window}"/>
+            <i:InvokeCommandAction Command="{Binding Path=DataContext.Paging, ElementName=Window}"/>
+
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+
+    <Window.Resources>
+        <local:BackgroundConverter x:Key="BackgroundConverter"/>
+        <Style x:Key="DatePickerTextBoxStyle1" TargetType="{x:Type DatePickerTextBox}">
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}"/>
+            <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
+            <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst"/>
+            <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type DatePickerTextBox}">
+                        <Grid>
+                            <Grid.Resources>
+                                <SolidColorBrush x:Key="WatermarkBrush" Color="#FFAAAAAA"/>
+                            </Grid.Resources>
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualStateGroup.Transitions>
+                                        <VisualTransition GeneratedDuration="0"/>
+                                        <VisualTransition GeneratedDuration="0:0:0.1" To="MouseOver"/>
+                                    </VisualStateGroup.Transitions>
+                                    <VisualState x:Name="Normal"/>
+                                    <VisualState x:Name="MouseOver">
+                                        <Storyboard>
+                                            <ColorAnimation Duration="0" To="#FF99C1E2" Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)" Storyboard.TargetName="ContentElement"/>
+                                            <ColorAnimation Duration="0" To="#FF99C1E2" Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)" Storyboard.TargetName="watermark_decorator"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                                <VisualStateGroup x:Name="WatermarkStates">
+                                    <VisualStateGroup.Transitions>
+                                        <VisualTransition GeneratedDuration="0"/>
+                                    </VisualStateGroup.Transitions>
+                                    <VisualState x:Name="Unwatermarked"/>
+                                    <VisualState x:Name="Watermarked">
+                                        <Storyboard>
+                                            <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="ContentElement"/>
+                                            <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="PART_Watermark"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                                <VisualStateGroup x:Name="FocusStates">
+                                    <VisualStateGroup.Transitions>
+                                        <VisualTransition GeneratedDuration="0"/>
+                                    </VisualStateGroup.Transitions>
+                                    <VisualState x:Name="Unfocused"/>
+                                    <VisualState x:Name="Focused">
+                                        <Storyboard>
+                                            <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="FocusVisual"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <Border x:Name="Border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" CornerRadius="1" Opacity="1" Padding="{TemplateBinding Padding}">
+                                <Grid x:Name="WatermarkContent" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                                    <Border x:Name="ContentElement" BorderBrush="#FFFFFFFF" BorderThickness="1"/>
+                                    <Border x:Name="watermark_decorator" BorderBrush="#FFFFFFFF" BorderThickness="1">
+                                        <ContentControl x:Name="PART_Watermark" Visibility="Collapsed" Focusable="False" IsHitTestVisible="False" Opacity="0" Padding="2"/>
+                                    </Border>
+                                    <ScrollViewer x:Name="PART_ContentHost" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="0" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                    <Border x:Name="FocusVisual" BorderBrush="#FF45D6FA" CornerRadius="1" IsHitTestVisible="False" Opacity="0"/>
+                                </Grid>
+                            </Border>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <!-- Resources scoped at the Application level should be defined here. -->
+        <Style x:Key="DatePickerStyle1" TargetType="{x:Type DatePicker}">
+            <Setter Property="Foreground" Value="#FF333333"/>
+            <Setter Property="IsTodayHighlighted" Value="True"/>
+            <Setter Property="SelectedDateFormat" Value="Short"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Padding" Value="2"/>
+            <Setter Property="BorderBrush">
+                <Setter.Value>
+                    <LinearGradientBrush EndPoint=".5,0" StartPoint=".5,1">
+                        <GradientStop Color="#FFA3AEB9" Offset="0"/>
+                        <GradientStop Color="#FF8399A9" Offset="0.375"/>
+                        <GradientStop Color="#FF718597" Offset="0.375"/>
+                        <GradientStop Color="#FF617584" Offset="1"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type DatePicker}">
+                        <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal"/>
+                                    <VisualState x:Name="Disabled">
+                                        <Storyboard>
+                                            <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="PART_DisabledVisual"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <Grid x:Name="PART_Root" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                                <Grid.Resources>
+                                    <SolidColorBrush x:Key="DisabledBrush" Color="#A5FFFFFF"/>
+                                    <ControlTemplate x:Key="DropDownButtonTemplate" TargetType="{x:Type Button}">
+                                        <Grid>
+                                            <VisualStateManager.VisualStateGroups>
+                                                <VisualStateGroup x:Name="CommonStates">
+                                                    <VisualStateGroup.Transitions>
+                                                        <VisualTransition GeneratedDuration="0"/>
+                                                        <VisualTransition GeneratedDuration="0:0:0.1" To="MouseOver"/>
+                                                        <VisualTransition GeneratedDuration="0:0:0.1" To="Pressed"/>
+                                                    </VisualStateGroup.Transitions>
+                                                    <VisualState x:Name="Normal"/>
+                                                    <VisualState x:Name="MouseOver">
+                                                        <Storyboard>
+                                                            <ColorAnimation Duration="0" To="#FF448DCA" Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)" Storyboard.TargetName="Background"/>
+                                                            <ColorAnimationUsingKeyFrames BeginTime="0" Duration="00:00:00.001" Storyboard.TargetProperty="(Border.Background).(GradientBrush.GradientStops)[3].(GradientStop.Color)" Storyboard.TargetName="BackgroundGradient">
+                                                                <SplineColorKeyFrame KeyTime="0" Value="#7FFFFFFF"/>
+                                                            </ColorAnimationUsingKeyFrames>
+                                                            <ColorAnimationUsingKeyFrames BeginTime="0" Duration="00:00:00.001" Storyboard.TargetProperty="(Border.Background).(GradientBrush.GradientStops)[2].(GradientStop.Color)" Storyboard.TargetName="BackgroundGradient">
+                                                                <SplineColorKeyFrame KeyTime="0" Value="#CCFFFFFF"/>
+                                                            </ColorAnimationUsingKeyFrames>
+                                                            <ColorAnimationUsingKeyFrames BeginTime="0" Duration="00:00:00.001" Storyboard.TargetProperty="(Border.Background).(GradientBrush.GradientStops)[1].(GradientStop.Color)" Storyboard.TargetName="BackgroundGradient">
+                                                                <SplineColorKeyFrame KeyTime="0" Value="#F2FFFFFF"/>
+                                                            </ColorAnimationUsingKeyFrames>
+                                                        </Storyboard>
+                                                    </VisualState>
+                                                    <VisualState x:Name="Pressed">
+                                                        <Storyboard>
+                                                            <ColorAnimationUsingKeyFrames BeginTime="0" Duration="00:00:00.001" Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)" Storyboard.TargetName="Background">
+                                                                <SplineColorKeyFrame KeyTime="0" Value="#FF448DCA"/>
+                                                            </ColorAnimationUsingKeyFrames>
+                                                            <DoubleAnimationUsingKeyFrames BeginTime="0" Duration="00:00:00.001" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Highlight">
+                                                                <SplineDoubleKeyFrame KeyTime="0" Value="1"/>
+                                                            </DoubleAnimationUsingKeyFrames>
+                                                            <ColorAnimationUsingKeyFrames BeginTime="0" Duration="00:00:00.001" Storyboard.TargetProperty="(Border.Background).(GradientBrush.GradientStops)[1].(GradientStop.Color)" Storyboard.TargetName="BackgroundGradient">
+                                                                <SplineColorKeyFrame KeyTime="0" Value="#EAFFFFFF"/>
+                                                            </ColorAnimationUsingKeyFrames>
+                                                            <ColorAnimationUsingKeyFrames BeginTime="0" Duration="00:00:00.001" Storyboard.TargetProperty="(Border.Background).(GradientBrush.GradientStops)[2].(GradientStop.Color)" Storyboard.TargetName="BackgroundGradient">
+                                                                <SplineColorKeyFrame KeyTime="0" Value="#C6FFFFFF"/>
+                                                            </ColorAnimationUsingKeyFrames>
+                                                            <ColorAnimationUsingKeyFrames BeginTime="0" Duration="00:00:00.001" Storyboard.TargetProperty="(Border.Background).(GradientBrush.GradientStops)[3].(GradientStop.Color)" Storyboard.TargetName="BackgroundGradient">
+                                                                <SplineColorKeyFrame KeyTime="0" Value="#6BFFFFFF"/>
+                                                            </ColorAnimationUsingKeyFrames>
+                                                            <ColorAnimationUsingKeyFrames BeginTime="0" Duration="00:00:00.001" Storyboard.TargetProperty="(Border.Background).(GradientBrush.GradientStops)[0].(GradientStop.Color)" Storyboard.TargetName="BackgroundGradient">
+                                                                <SplineColorKeyFrame KeyTime="0" Value="#F4FFFFFF"/>
+                                                            </ColorAnimationUsingKeyFrames>
+                                                        </Storyboard>
+                                                    </VisualState>
+                                                    <VisualState x:Name="Disabled"/>
+                                                </VisualStateGroup>
+                                            </VisualStateManager.VisualStateGroups>
+                                            <Grid Background="#11FFFFFF" FlowDirection="LeftToRight" HorizontalAlignment="Center" Height="18" Margin="0" VerticalAlignment="Center" Width="19">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="20*"/>
+                                                    <ColumnDefinition Width="20*"/>
+                                                    <ColumnDefinition Width="20*"/>
+                                                    <ColumnDefinition Width="20*"/>
+                                                </Grid.ColumnDefinitions>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="23*"/>
+                                                    <RowDefinition Height="19*"/>
+                                                    <RowDefinition Height="19*"/>
+                                                    <RowDefinition Height="19*"/>
+                                                </Grid.RowDefinitions>
+                                                <Border x:Name="Highlight" BorderBrush="#FF45D6FA" BorderThickness="1" Grid.ColumnSpan="4" CornerRadius="0,0,1,1" Margin="-1" Opacity="0" Grid.Row="0" Grid.RowSpan="4"/>
+                                                <Border x:Name="Background" BorderBrush="#FFFFFFFF" BorderThickness="1" Background="#FF1F3B53" Grid.ColumnSpan="4" CornerRadius=".5" Margin="0,-1,0,0" Opacity="1" Grid.Row="1" Grid.RowSpan="3"/>
+                                                <Border x:Name="BackgroundGradient" BorderBrush="#BF000000" BorderThickness="1" Grid.ColumnSpan="4" CornerRadius=".5" Margin="0,-1,0,0" Opacity="1" Grid.Row="1" Grid.RowSpan="3">
+                                                    <Border.Background>
+                                                        <LinearGradientBrush EndPoint=".7,1" StartPoint=".7,0">
+                                                            <GradientStop Color="#FFFFFFFF" Offset="0"/>
+                                                            <GradientStop Color="#F9FFFFFF" Offset="0.375"/>
+                                                            <GradientStop Color="#E5FFFFFF" Offset="0.625"/>
+                                                            <GradientStop Color="#C6FFFFFF" Offset="1"/>
+                                                        </LinearGradientBrush>
+                                                    </Border.Background>
+                                                </Border>
+                                                <Rectangle Grid.ColumnSpan="4" Grid.RowSpan="1" StrokeThickness="1">
+                                                    <Rectangle.Fill>
+                                                        <LinearGradientBrush EndPoint="0.3,-1.1" StartPoint="0.46,1.6">
+                                                            <GradientStop Color="#FF4084BD"/>
+                                                            <GradientStop Color="#FFAFCFEA" Offset="1"/>
+                                                        </LinearGradientBrush>
+                                                    </Rectangle.Fill>
+                                                    <Rectangle.Stroke>
+                                                        <LinearGradientBrush EndPoint="0.48,-1" StartPoint="0.48,1.25">
+                                                            <GradientStop Color="#FF494949"/>
+                                                            <GradientStop Color="#FF9F9F9F" Offset="1"/>
+                                                        </LinearGradientBrush>
+                                                    </Rectangle.Stroke>
+                                                </Rectangle>
+                                                <Path Grid.ColumnSpan="4" Grid.Column="0" Data="M11.426758,8.4305077 L11.749023,8.4305077 L11.749023,16.331387 L10.674805,16.331387 L10.674805,10.299648 L9.0742188,11.298672 L9.0742188,10.294277 C9.4788408,10.090176 9.9094238,9.8090878 10.365967,9.4510155 C10.82251,9.0929432 11.176106,8.7527733 11.426758,8.4305077 z M14.65086,8.4305077 L18.566387,8.4305077 L18.566387,9.3435936 L15.671368,9.3435936 L15.671368,11.255703 C15.936341,11.058764 16.27293,10.960293 16.681133,10.960293 C17.411602,10.960293 17.969301,11.178717 18.354229,11.615566 C18.739157,12.052416 18.931622,12.673672 18.931622,13.479336 C18.931622,15.452317 18.052553,16.438808 16.294415,16.438808 C15.560365,16.438808 14.951641,16.234707 14.468243,15.826504 L14.881817,14.929531 C15.368796,15.326992 15.837872,15.525723 16.289043,15.525723 C17.298809,15.525723 17.803692,14.895514 17.803692,13.635098 C17.803692,12.460618 17.305971,11.873379 16.310528,11.873379 C15.83071,11.873379 15.399232,12.079271 15.016094,12.491055 L14.65086,12.238613 z" Fill="#FF2F2F2F" HorizontalAlignment="Center" Margin="4,3,4,3" Grid.Row="1" Grid.RowSpan="3" RenderTransformOrigin="0.5,0.5" Stretch="Fill" VerticalAlignment="Center"/>
+                                                <Ellipse Grid.ColumnSpan="4" Fill="#FFFFFFFF" HorizontalAlignment="Center" Height="3" StrokeThickness="0" VerticalAlignment="Center" Width="3"/>
+                                                <Border x:Name="DisabledVisual" BorderBrush="#B2FFFFFF" BorderThickness="1" Grid.ColumnSpan="4" CornerRadius="0,0,.5,.5" Opacity="0" Grid.Row="0" Grid.RowSpan="4"/>
+                                            </Grid>
+                                        </Grid>
+                                    </ControlTemplate>
+                                </Grid.Resources>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Button x:Name="PART_Button" Grid.Column="1" Foreground="{TemplateBinding Foreground}" Focusable="False" HorizontalAlignment="Left" Margin="3,0,3,0" Grid.Row="0" Template="{StaticResource DropDownButtonTemplate}" VerticalAlignment="Top" Width="20"/>
+                                <DatePickerTextBox x:Name="PART_TextBox" Grid.Column="0" Focusable="{TemplateBinding Focusable}" HorizontalContentAlignment="Stretch" Grid.Row="0" VerticalContentAlignment="Stretch" Style="{DynamicResource DatePickerTextBoxStyle1}"/>
+                                <Grid x:Name="PART_DisabledVisual" Grid.ColumnSpan="2" Grid.Column="0" IsHitTestVisible="False" Opacity="0" Grid.Row="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Rectangle Grid.Column="0" Fill="#A5FFFFFF" RadiusY="1" Grid.Row="0" RadiusX="1"/>
+                                    <Rectangle Grid.Column="1" Fill="#A5FFFFFF" Height="18" Margin="3,0,3,0" RadiusY="1" Grid.Row="0" RadiusX="1" Width="19"/>
+                                    <Popup x:Name="PART_Popup" AllowsTransparency="True" Placement="Bottom" PlacementTarget="{Binding ElementName=PART_TextBox}" StaysOpen="False"/>
+                                </Grid>
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <DataTrigger Binding="{Binding Source={x:Static SystemParameters.HighContrast}}" Value="false">
+                                <Setter Property="Foreground" TargetName="PART_TextBox" Value="{Binding Foreground, RelativeSource={RelativeSource TemplatedParent}}"/>
+                            </DataTrigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <ControlTemplate x:Key="ErrorTemplate">
+            <DockPanel LastChildFill="True">
+                <Border BorderBrush="Red" BorderThickness="1">
+                    <AdornedElementPlaceholder />
+                </Border>
+            </DockPanel>
+        </ControlTemplate>
+        <Style TargetType="TextBox">
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="true">
+                    <Setter Property="ToolTip"
+          Value="{Binding RelativeSource={x:Static RelativeSource.Self},
+                    Path=(Validation.Errors)[0].ErrorContent}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="DatePicker">
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="true">
+                    <Setter Property="ToolTip"
+          Value="{Binding RelativeSource={x:Static RelativeSource.Self},
+                    Path=(Validation.Errors)[0].ErrorContent}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Grid.Column="0" Grid.Row="0" Background="#E0E0E0" Height="30" VerticalAlignment="Bottom">
+            <Image Source="ikone\IkonaProfila.png"/>
+            <TextBlock Text=" Mitarbeiterverwaltung" FontSize="14" VerticalAlignment="Center" FontWeight="Bold"/>
+        </StackPanel>
+
+        <TabControl Grid.Row="1" Grid.Column="0" Margin="10,10,30,-41" Height="685" VerticalAlignment="Top">
+            <TabItem>
+                <TabItem.Header>
+                    <TextBlock Text="Kartei" FontSize="16" />
+                </TabItem.Header>
+                <Grid Background="White" Margin="147,0,197,15" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid Background="#FFE0E0E0" Grid.Row="0" Grid.Column="0" Margin="0,0,14,0" VerticalAlignment="Center" HorizontalAlignment="Center" >
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="40"  />
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150" SharedSizeGroup="A"/>
+                            <ColumnDefinition Width="200" SharedSizeGroup="B"/>
+                            <ColumnDefinition Width="50" SharedSizeGroup="C"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="Mitarbeiter Nr.:" FontSize="14" Grid.Column="0" Grid.Row="0"/>
+                        <TextBox x:Name="txtMitarbeiter" HorizontalContentAlignment="Center" Grid.Column="1" Grid.Row="0" Height="25" Margin="27,0.04,8,4.96" Text="{Binding MitarbeiterNr, Mode=TwoWay, ValidatesOnDataErrors=True, NotifyOnValidationError=True,ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}" IsEnabled="False" />
+                        <Label Content="Anredan/Titel:" FontSize="14" Grid.Column="0" Grid.Row="1"/>
+                        <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal" Margin="30,0,0,0.04" HorizontalAlignment="Left">
+                            <RadioButton x:Name="rbtnHerrMitarbeiter" Content="Herr" VerticalAlignment="Center" HorizontalAlignment="Right" IsChecked="{Binding RadioHerr}" Cursor="Hand"/>
+                            <RadioButton x:Name="rbtnFrauMitarbeiter" Content="Frau" VerticalAlignment="Center" HorizontalAlignment="Right" IsChecked="{Binding RadioFrau}" Cursor="Hand"/>
+                        </StackPanel>
+
+                        <Label Content="Vorname:" FontSize="14" Grid.Column="0" Grid.Row="2"/>
+                        <TextBox x:Name="txtVornameMitarbeiter" Grid.Column="1" Grid.Row="2" Height="25" Margin="27,0.04,8,4.96" Text="{Binding Vorname, Mode=TwoWay, ValidatesOnDataErrors=True, NotifyOnValidationError=True,ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}"/>
+                        <Label Content="Name:" FontSize="14" Grid.Column="0" Grid.Row="3"/>
+                        <TextBox x:Name="txtNameMitarbeiter" Grid.Column="1" Grid.Row="3" Height="25" Margin="27,0.04,8,4.96" Text="{Binding Name, Mode=TwoWay, ValidatesOnDataErrors=True, NotifyOnValidationError=True,ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}"/>
+                        <Label Content="Geburtsdatum:" FontSize="14" Grid.Column="0" Grid.Row="4"/>
+
+                        <Label Content="Adresse:" FontSize="14" Grid.Column="0" Grid.Row="5"/>
+                        <TextBox x:Name="txtAdresseMitarbeiter" Grid.Column="1" Grid.Row="5" Height="25" Margin="27,0.04,8,4.96" Text="{Binding Adresse, Mode=TwoWay, ValidatesOnDataErrors=True, NotifyOnValidationError=True,ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}"/>
+                        <Label Content="Telefon:" FontSize="14" Grid.Column="0" Grid.Row="6"/>
+                        <TextBox x:Name="txtTelefonMitarbeiter" Grid.Column="1" Grid.Row="6" Height="25" Margin="27,0.04,8,4.96" Text="{Binding Telefon, Mode=TwoWay, ValidatesOnDataErrors=True, NotifyOnValidationError=True,ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}"/>
+                        <Label Content="Telefon 2:" FontSize="14" Grid.Column="0" Grid.Row="7"/>
+                        <TextBox x:Name="txtTelefonMitarbeiter2" Grid.Column="1" Grid.Row="7" Height="25" Margin="27,0.04,8,4.96" Text="{Binding Telefon2}"/>
+                        <Label Content="Handy:" FontSize="14" Grid.Column="0" Grid.Row="8"/>
+                        <TextBox x:Name="txtHandyMitarbeiter" Grid.Column="1" Grid.Row="8" Height="25" Margin="27,0.04,8,4.96" Text="{Binding Handy}"/>
+                        <Label Content="Skype:" FontSize="14" Grid.Column="0" Grid.Row="9"/>
+                        <TextBox x:Name="txtSkype" Grid.Column="1" Grid.Row="9" Height="25" Margin="27,0.04,8,4.96" Text="{Binding Skype}"/>
+                        <Label Content="Fax:" FontSize="14" Grid.Column="0" Grid.Row="10"/>
+                        <TextBox x:Name="txtFaxMitarbeiter" Grid.Column="1" Grid.Row="10" Height="25" Margin="27,0.04,8,4.96" Text="{Binding Fax}"/>
+                        <Label Content="E-Mail:" FontSize="14" Grid.Column="0" Grid.Row="11"/>
+                        <TextBox x:Name="txtEmailMitarbeiter" Grid.Column="1" Grid.Row="11" Height="25" Margin="27,0.04,8,4.96" Text="{Binding Email, Mode=TwoWay, ValidatesOnDataErrors=True, NotifyOnValidationError=True,ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}"/>
+                        <Border BorderBrush="#FFFFFF" BorderThickness="1" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"/>
+                        <Border BorderBrush="#FFFFFF" BorderThickness="1" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3"/>
+                        <Border BorderBrush="#FFFFFF" BorderThickness="1" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3"/>
+                        <Border BorderBrush="#FFFFFF" BorderThickness="1" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3"/>
+                        <Border BorderBrush="#FFFFFF" BorderThickness="1" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="3"/>
+                        <Border BorderBrush="#FFFFFF" BorderThickness="1" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="3"/>
+                        <Border BorderBrush="#FFFFFF" BorderThickness="1" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="3"/>
+                        <Border BorderBrush="#FFFFFF" BorderThickness="1" Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="3"/>
+                        <Border BorderBrush="#FFFFFF" BorderThickness="1" Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="3"/>
+                        <Border BorderBrush="#FFFFFF" BorderThickness="1" Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="3"/>
+
+                        <DatePicker Grid.Column="1" HorizontalAlignment="Left" Margin="27,5,0,0" Grid.Row="4" VerticalAlignment="Top" Width="165" SelectedDate="{Binding Geburstdatum, Mode=TwoWay, ValidatesOnDataErrors=True, NotifyOnValidationError=True,ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}"  DisplayDateStart="1930-01-01" DisplayDateEnd="{x:Static sys:DateTime.Now}" Cursor="Hand"/>
+                    </Grid>
+
+                    <Grid  Background="#E0E0E0" Grid.Row="0" Grid.Column="2" Margin="40,0,0,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="100"/>
+                            <RowDefinition Height="40"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150" SharedSizeGroup="A"/>
+                            <ColumnDefinition Width="102.716" SharedSizeGroup="B"/>
+                            <ColumnDefinition Width="97.284"/>
+                            <ColumnDefinition Width="50" SharedSizeGroup="C"/>
+                        </Grid.ColumnDefinitions>
+                        <Border BorderBrush="#FFFFFF" BorderThickness="1" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4"/>
+                        <Border BorderBrush="#FFFFFF" BorderThickness="1" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="4"/>
+                        <Border BorderBrush="#FFFFFF" BorderThickness="1" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="4"/>
+                        <Border BorderBrush="#FFFFFF" BorderThickness="1" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="4"/>
+                        <Border BorderBrush="#FFFFFF" BorderThickness="1" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="4"/>
+                        <Border BorderBrush="#FFFFFF" BorderThickness="1" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="4"/>
+                        <Border BorderBrush="#FFFFFF" BorderThickness="1" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="4"/>
+                        <Border BorderBrush="#FFFFFF" BorderThickness="1" Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="4"/>
+                        <Border BorderBrush="#FFFFFF" BorderThickness="1" Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="4"/>
+                        <Border BorderBrush="#FFFFFF" BorderThickness="1" Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="4"/>
+                        <Border BorderBrush="#FFFFFF" BorderThickness="1" Grid.Row="11" Grid.Column="0" Grid.ColumnSpan="4"/>
+                        <Border BorderBrush="#FFFFFF" BorderThickness="1" Grid.Row="12" Grid.Column="0" Grid.ColumnSpan="4"/>
+                        <Label Content="Benutzer auswählen:" FontSize="14" Grid.Column="0" Grid.Row="0"/>
+                        <ComboBox x:Name="cmbBenutzer" Grid.Row="0" Height="25" Width="180" Margin="0,5,20,10" Grid.Column="1" ItemsSource="{Binding ListaKorisnika}" SelectedItem="{Binding Path=DataContext.SelektovaniKorisnik, ElementName=Window}" SelectedIndex="0" Grid.ColumnSpan="2" Cursor="Hand">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock>
+                                     <Run Text="{Binding ime}" />
+                                     <Run Text="{Binding prezime}" />
+                                    </TextBlock>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+                        <Label Content="Gehalt pro Monat:" FontSize="14" Grid.Column="0" Grid.Row="1"/>
+                        <TextBox x:Name="txtGehalt" Grid.Column="1" Grid.Row="1" Height="25" Width="180" Margin="0,8,20,8"  Text="{Binding Gehalt}" Grid.ColumnSpan="2"/>
+                        <Label Content="Stundenlohn:" FontSize="14" Grid.Column="0" Grid.Row="2"/>
+                        <TextBox x:Name="txtStudenlohn" Grid.Column="1" Grid.Row="2" Height="25" Width="180" Margin="0,8,20,8"  Text="{Binding Stundenlohn}" Grid.ColumnSpan="2"/>
+                        <Label Content="Urlaubstage ist:" FontSize="14" Grid.Column="0" Grid.Row="3"/>
+                        <TextBox x:Name="txtUrlaubstageIst" Grid.Column="1" Grid.Row="3" Height="25" Width="180" Margin="0,8,20,8" Text="{Binding Urlaubstage}" Grid.ColumnSpan="2" />
+                        <Label Content="Urlaubstage soll" FontSize="14" Grid.Column="0" Grid.Row="4"/>
+                        <TextBox x:Name="txtUrlaubstageSoll" Grid.Column="1" Grid.Row="4" Height="25" Width="180" Margin="0,8,20,8"  Text="{Binding UrlaubstageDuzan}" Grid.ColumnSpan="2"/>
+                        <Label Content="Anzahl Gehälter:" Grid.Column="0" Grid.Row="5" FontSize="14"/>
+                        <TextBox x:Name="txtAnzahlmitarbeiter" Grid.Column="1" Grid.Row="5" Height="25" Width="180" Margin="0,8,20,8"  Text="{Binding AnzahlGehalter}" Grid.ColumnSpan="2"/>
+                        <Label Content="Wochenstunden:" Grid.Column="0" Grid.Row="6" FontSize="14"/>
+                        <TextBox x:Name="txtWochenstunden" Grid.Column="1" Grid.Row="6" Height="25" Width="180" Margin="0,8,20,8" Text="{Binding Wochenstunden}" Grid.ColumnSpan="2" />
+                        <Label Content="Krankenheitstage:" Grid.Column="0" Grid.Row="7" FontSize="14"/>
+                        <TextBox x:Name="txtKrankenheitstage" Grid.Column="1" Grid.Row="7" Height="25" Width="180" Margin="0,8,20,8"  Text="{Binding Krankenheitstage}" Grid.ColumnSpan="2"/>
+                        <Label Content="Bank:" Grid.Column="0" Grid.Row="8" FontSize="14"/>
+                        <TextBox x:Name="txtBank" Grid.Column="1" Grid.Row="8" Height="25" Width="180" Margin="0,8,20,8" Text="{Binding Bank}" Grid.ColumnSpan="2"/>
+                        <Label Content="BLZ:" Grid.Column="0" Grid.Row="9" FontSize="14" />
+                        <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="9" Grid.ColumnSpan="2">
+                            <TextBox x:Name="txtBLZ" Width="50" Height="25" Text="{Binding Blz}"/>
+                            <Label Content="KtoNr.:" VerticalAlignment="Center" FontSize="14"/>
+                            <TextBox x:Name="txtKtoNr" Width="83.593" Height="25" Margin="0,7.5" Text="{Binding KtoNr}"/>
+                        </StackPanel>
+                        <Label Content="BIC/SWIFT:" Grid.Column="0" Grid.Row="10" FontSize="14"/>
+                        <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="10" Grid.ColumnSpan="2">
+                            <TextBox x:Name="txtBIC" Width="50" Height="25" Text="{Binding Bic}"/>
+                            <Label Content="  IBAN:" VerticalAlignment="Center" FontSize="14"/>
+                            <TextBox x:Name="txtIBAN" Width="84.037" Height="25" Margin="0,7.5" Text="{Binding Iban}"/>
+                        </StackPanel>
+                        <Label Content="Kontoinhaber:" Grid.Column="0" Grid.Row="11" FontSize="14"/>
+                        <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="11" Grid.ColumnSpan="2">
+                            <TextBox x:Name="txtKontoinhaber" Width="90" Height="25" Text="{Binding Kontoinhaber}"/>
+                            <Label Content="(leer=wie Adresse)" FontSize="12" VerticalAlignment="Center"/>
+                        </StackPanel>
+                        <Label Content="Notiz:" Grid.Column="0" Grid.Row="12" FontSize="14" />
+                        <TextBox x:Name="rtbxNotiz" Grid.Column="1" Grid.Row="12" Width="180" Margin="0,10,20,10" Text="{Binding Notiz}" Grid.ColumnSpan="2"/>
+                        <StackPanel Orientation="Horizontal" Grid.Column="0" Grid.Row="13" Grid.ColumnSpan="3" HorizontalAlignment="Center" Margin="75,0,25,0">
+                            <Button VerticalContentAlignment="Center" Background="#FF51A351" HorizontalAlignment="Left" Width="120" Height="30" Margin="0,0,5,0" Command="{Binding DodajRadnika}" Cursor="Hand">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="ikone/IkonaButtonOk.png"/>
+                                    <TextBlock Text="Speichern" FontSize="14" FontWeight="Bold" Foreground="White" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </Button>
+                            <Button VerticalContentAlignment="Center" Background="#505050" HorizontalAlignment="Right" Width="120" Height="30" Margin="5,0,0,0" Command="{Binding Cancel}" Click="Button_Click" Cursor="Hand">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="ikone/IkonaButtonOdustani.png"/>
+                                    <TextBlock Text="Abbrechen" FontSize="14" FontWeight="Bold" Foreground="White" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </Button>
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+            </TabItem>
+            <TabItem >
+                <TabItem.Header>
+                    <TextBlock Text="Liste" FontSize="16" />
+                </TabItem.Header>
+                <Grid Background="#FFFFFF">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Orientation="Horizontal" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Right" Margin="0,0,16,5">
+                        <Label Content="Suche:" FontSize="14"  VerticalAlignment="Center"/>
+                        <TextBox x:Name="Pretraga" Width="180" Height="25" Text="{Binding Pretraga, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="KeyUp">
+                                    <i:InvokeCommandAction Command="{Binding Path=DataContext.Search, ElementName=Pretraga}"/>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </TextBox>
+                    </StackPanel>
+                    <DataGrid Name="datagrid1" Grid.Column="0" Grid.Row="0" SelectionMode="Single" ItemsSource="{Binding ListaPage1,Mode=TwoWay,NotifyOnTargetUpdated=True}" Height="450"
+						AutoGenerateColumns="False" FontSize="14" CanUserAddRows="false" IsReadOnly="True" CanUserResizeColumns="True" Margin="10,98,16,-422" SelectedItem="{Binding SelektovaniRadnik, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Mitarbeiter Nr." IsReadOnly="True" x:Name="col1_1" Binding="{Binding sifra_radnik}"/>
+                            <DataGridTextColumn Header="Mitarbeiter" x:Name="col1_2" Binding="{Binding ime}"/>
+                            <DataGridTextColumn Header="Datum" x:Name="col1_3" Binding="{Binding datum}"/>
+                            <DataGridTextColumn Header="Adresse" x:Name="col1_4" Binding="{Binding adresa}"/>
+                            <DataGridTextColumn Header="Telefon/Handy" x:Name="col1_5" Binding="{Binding mobitel}"/>
+                            <DataGridTextColumn Header="Fax" x:Name="col1_6" Binding="{Binding fax}"/>
+                            <DataGridTextColumn Header="Skype" x:Name="col1_7" Binding="{Binding skype,NotifyOnSourceUpdated=True}"/>
+                            <DataGridTemplateColumn Header="Status" x:Name="col1_8">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center">
+                                            <Button Margin="5" Width="35" Height="25" Background="{Binding status,Mode=TwoWay,NotifyOnSourceUpdated=True, Converter={StaticResource BackgroundConverter}}" Command="{Binding Path=DataContext.ChangeStat,Mode=TwoWay, ElementName=datagrid1}"></Button>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Header="Aktionen" x:Name="col1_9" >
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center">
+                                            <Button Margin="5" Width="35" Height="25"  Command="{Binding Path=DataContext.OtvoriEditRadnik1, ElementName=datagrid1}">
+                                                <Image Source="ikone/IkonaUredi.png"/>
+                                            </Button>
+                                            <Button Margin="5" Width="35" Height="25" Command="{Binding Path=DataContext.ObrisiRadnika, ElementName=datagrid1}">
+                                                <Image Source="ikone/IkonaObrisi.png" />
+                                            </Button>
+
+                                            <Button Margin="5" Width="35" Height="25">
+                                                <Image Source="ikone/IkonaFileManager.png" />
+                                            </Button>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button Margin="10,27,0,0" Content="&lt;&lt;" BorderBrush="{x:Null}" Height="23" HorizontalAlignment="Left"
+                             VerticalAlignment="Top" Width="40" Opacity="0.75" Cursor="Hand" Command="{Binding PrebaciNaPrvi}">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#5A5A5A" Offset="0.188" />
+                                <GradientStop Color="#E1E1E1" Offset="0.543" />
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+                    <Button  Margin="55,28,0,0" Content="&lt;" HorizontalAlignment="Left" VerticalAlignment="Top" Height="23" Width="40"  Opacity="0.75" Cursor="Hand" BorderBrush="{x:Null}" Command="{Binding PagingRikverc}">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#5A5A5A" Offset="0.188" />
+                                <GradientStop Color="#E1E1E1" Offset="0.543" />
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+                    <Button Margin="159,28,0,0" Content="&gt;" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="23" 
+                            BorderBrush="{x:Null}"  Opacity="0.75" RenderTransformOrigin="0.875,0.609" Cursor="Hand" Command="{Binding Paging2}">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#5A5A5A" Offset="0.188" />
+                                <GradientStop Color="#E1E1E1" Offset="0.543" />
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+                    <Button  Content="&gt;&gt;" HorizontalAlignment="Left" Margin="204,27,0,0" VerticalAlignment="Top"
+                            Width="40" Height="23" BorderBrush="{x:Null}"  Opacity="0.75"  Cursor="Hand" Command="{Binding PrebaciNaZadnji}">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#5A5A5A" Offset="0.188" />
+                                <GradientStop Color="#E1E1E1" Offset="0.543" />
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+                    <Label Content="{Binding BrojStranice}" HorizontalAlignment="Left" Margin="113,27,0,0" VerticalAlignment="Top" Height="23" Width="27" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    <ComboBox x:Name="BrojPrikaza" HorizontalAlignment="Left" Margin="91,61,0,0" VerticalAlignment="Top" Width="49" RenderTransformOrigin="0.906,0.231" ItemsSource="{Binding BrojPrikazanihRadnika}" SelectedItem="{Binding KolicinaRadnika, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="SelectionChanged">
+                                <i:InvokeCommandAction Command="{Binding Path=DataContext.PrebaciNaPrvi, ElementName=BrojPrikaza}"/>
+
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </ComboBox>
+                    <Label Content="Es werden" FontSize="14" HorizontalAlignment="Left" Margin="10,57,0,0" VerticalAlignment="Top" Width="76"/>
+                    <Label Content="Einträge per Seite angezeigt" FontSize="14" HorizontalAlignment="Left" Margin="162,57,0,0" VerticalAlignment="Top" Width="192"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</Window>

@@ -1,0 +1,62 @@
+C:\Users\OSantos\Documents\Visual Studio 2010\Projects\WpfScheduler\bin\Debug\WpfScheduler.dll
+C:\Users\OSantos\Documents\Visual Studio 2010\Projects\WpfScheduler\bin\Debug\WpfScheduler.pdb
+C:\Users\OSantos\Documents\Visual Studio 2010\Projects\WpfScheduler\obj\Debug\WeekScheduler.baml
+C:\Users\OSantos\Documents\Visual Studio 2010\Projects\WpfScheduler\obj\Debug\WeekScheduler.g.cs
+C:\Users\OSantos\Documents\Visual Studio 2010\Projects\WpfScheduler\obj\Debug\WpfScheduler_MarkupCompile.cache
+C:\Users\OSantos\Documents\Visual Studio 2010\Projects\WpfScheduler\obj\Debug\WpfScheduler.g.resources
+C:\Users\OSantos\Documents\Visual Studio 2010\Projects\WpfScheduler\obj\Debug\WpfScheduler.Properties.Resources.resources
+C:\Users\OSantos\Documents\Visual Studio 2010\Projects\WpfScheduler\obj\Debug\WpfScheduler.csproj.GenerateResource.Cache
+C:\Users\OSantos\Documents\Visual Studio 2010\Projects\WpfScheduler\obj\Debug\WpfScheduler.dll
+C:\Users\OSantos\Documents\Visual Studio 2010\Projects\WpfScheduler\obj\Debug\WpfScheduler.pdb
+C:\Users\OSantos\Documents\Visual Studio 2010\Projects\WpfScheduler\obj\Debug\WeekEvent.baml
+C:\Users\OSantos\Documents\Visual Studio 2010\Projects\WpfScheduler\obj\Debug\WeekEvent.g.cs
+C:\Users\OSantos\Documents\Visual Studio 2010\Projects\WpfScheduler\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\OSantos\Documents\Visual Studio 2010\Projects\WpfScheduler\obj\Debug\WpfScheduler_MarkupCompile.lref
+D:\SVN\WPF\CustomControls\WPFScheduler\WpfScheduler\obj\Debug\WeekScheduler.g.cs
+D:\SVN\WPF\CustomControls\WPFScheduler\WpfScheduler\obj\Debug\WpfScheduler_MarkupCompile.cache
+D:\SVN\WPF\CustomControls\WPFScheduler\WpfScheduler\obj\Debug\WpfScheduler_MarkupCompile.lref
+D:\SVN\WPF\CustomControls\WPFScheduler\WpfScheduler\obj\Debug\WpfScheduler.dll
+D:\SVN\WPF\CustomControls\WPFScheduler\WpfScheduler\bin\Debug\WpfScheduler.dll
+D:\SVN\WPF\CustomControls\WPFScheduler\WpfScheduler\bin\Debug\WpfScheduler.pdb
+D:\SVN\WPF\CustomControls\WPFScheduler\WpfScheduler\obj\Debug\WeekScheduler.baml
+D:\SVN\WPF\CustomControls\WPFScheduler\WpfScheduler\obj\Debug\WpfScheduler.g.resources
+D:\SVN\WPF\CustomControls\WPFScheduler\WpfScheduler\obj\Debug\WpfScheduler.Properties.Resources.resources
+D:\SVN\WPF\CustomControls\WPFScheduler\WpfScheduler\obj\Debug\WpfScheduler.csproj.GenerateResource.Cache
+D:\SVN\WPF\CustomControls\WPFScheduler\WpfScheduler\obj\Debug\WpfScheduler.pdb
+D:\SVN\WPF\CustomControls\WPFScheduler\WpfScheduler\obj\Debug\Themes\Generic.baml
+D:\SVN\WPF\CustomControls\WPFScheduler\WpfScheduler\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\SVN\WPF\CustomControls\WPFScheduler\WpfScheduler\obj\Debug\DayScheduler.baml
+D:\SVN\WPF\CustomControls\WPFScheduler\WpfScheduler\obj\Debug\MonthScheduler.baml
+D:\SVN\WPF\CustomControls\WPFScheduler\WpfScheduler\obj\Debug\DayScheduler.g.cs
+D:\SVN\WPF\CustomControls\WPFScheduler\WpfScheduler\obj\Debug\MonthScheduler.g.cs
+D:\SVN\WPF\CustomControls\WPFScheduler\WpfScheduler\obj\Debug\Scheduler.g.cs
+D:\SVN\WPF\CustomControls\WPFScheduler\WpfScheduler\obj\Debug\Scheduler.baml
+D:\SVN\WPF\CustomControls\WPFScheduler\WpfScheduler\obj\Debug\MonthDay.baml
+D:\SVN\WPF\CustomControls\WPFScheduler\WpfScheduler\obj\Debug\MonthDay.g.cs
+D:\SVN\WPF\CustomControls\WPFScheduler\WpfScheduler\obj\Debug\EventUserControl.baml
+D:\SVN\WPF\CustomControls\WPFScheduler\WpfScheduler\obj\Debug\EventUserControl.g.cs
+D:\SVN\WPF\CustomControls\WPFScheduler\WpfScheduler\obj\Debug\WpfScheduler.csprojResolveAssemblyReference.cache
+C:\Users\home\Documents\GitHub\MaasFakturav2\Servis\WpfScheduler\bin\Debug\WpfScheduler.dll
+C:\Users\home\Documents\GitHub\MaasFakturav2\Servis\WpfScheduler\bin\Debug\WpfScheduler.pdb
+C:\Users\home\Documents\GitHub\MaasFakturav2\Servis\WpfScheduler\obj\Debug\WpfScheduler.csprojResolveAssemblyReference.cache
+C:\Users\home\Documents\GitHub\MaasFakturav2\Servis\WpfScheduler\obj\Debug\MonthDay.baml
+C:\Users\home\Documents\GitHub\MaasFakturav2\Servis\WpfScheduler\obj\Debug\EventUserControl.baml
+C:\Users\home\Documents\GitHub\MaasFakturav2\Servis\WpfScheduler\obj\Debug\DayScheduler.g.cs
+C:\Users\home\Documents\GitHub\MaasFakturav2\Servis\WpfScheduler\obj\Debug\MonthDay.g.cs
+C:\Users\home\Documents\GitHub\MaasFakturav2\Servis\WpfScheduler\obj\Debug\MonthScheduler.g.cs
+C:\Users\home\Documents\GitHub\MaasFakturav2\Servis\WpfScheduler\obj\Debug\EventUserControl.g.cs
+C:\Users\home\Documents\GitHub\MaasFakturav2\Servis\WpfScheduler\obj\Debug\WeekScheduler.g.cs
+C:\Users\home\Documents\GitHub\MaasFakturav2\Servis\WpfScheduler\obj\Debug\Scheduler.g.cs
+C:\Users\home\Documents\GitHub\MaasFakturav2\Servis\WpfScheduler\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\home\Documents\GitHub\MaasFakturav2\Servis\WpfScheduler\obj\Debug\WpfScheduler_MarkupCompile.cache
+C:\Users\home\Documents\GitHub\MaasFakturav2\Servis\WpfScheduler\obj\Debug\WpfScheduler_MarkupCompile.lref
+C:\Users\home\Documents\GitHub\MaasFakturav2\Servis\WpfScheduler\obj\Debug\DayScheduler.baml
+C:\Users\home\Documents\GitHub\MaasFakturav2\Servis\WpfScheduler\obj\Debug\MonthScheduler.baml
+C:\Users\home\Documents\GitHub\MaasFakturav2\Servis\WpfScheduler\obj\Debug\Themes\Generic.baml
+C:\Users\home\Documents\GitHub\MaasFakturav2\Servis\WpfScheduler\obj\Debug\WeekScheduler.baml
+C:\Users\home\Documents\GitHub\MaasFakturav2\Servis\WpfScheduler\obj\Debug\Scheduler.baml
+C:\Users\home\Documents\GitHub\MaasFakturav2\Servis\WpfScheduler\obj\Debug\WpfScheduler.g.resources
+C:\Users\home\Documents\GitHub\MaasFakturav2\Servis\WpfScheduler\obj\Debug\WpfScheduler.Properties.Resources.resources
+C:\Users\home\Documents\GitHub\MaasFakturav2\Servis\WpfScheduler\obj\Debug\WpfScheduler.csproj.GenerateResource.Cache
+C:\Users\home\Documents\GitHub\MaasFakturav2\Servis\WpfScheduler\obj\Debug\WpfScheduler.dll
+C:\Users\home\Documents\GitHub\MaasFakturav2\Servis\WpfScheduler\obj\Debug\WpfScheduler.pdb

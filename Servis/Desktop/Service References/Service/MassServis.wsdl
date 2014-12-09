@@ -1,0 +1,914 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="MassServis" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:12953/MassServis.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:12953/MassServis.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:12953/MassServis.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Mass.Data" />
+      <xsd:import schemaLocation="http://localhost:12953/MassServis.svc?xsd=xsd3" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="MassServis_LoginValidacija_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoginValidacija" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_LoginValidacija_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginValidacijaResponse" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_UnesiDobavljaca_InputMessage">
+    <wsdl:part name="parameters" element="tns:UnesiDobavljaca" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_UnesiDobavljaca_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UnesiDobavljacaResponse" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_ListaDobavljaca_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListaDobavljaca" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_ListaDobavljaca_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListaDobavljacaResponse" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_ObrisiDobavljaca_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObrisiDobavljaca" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_ObrisiDobavljaca_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObrisiDobavljacaResponse" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_UpdateDobavljac_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateDobavljac" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_UpdateDobavljac_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateDobavljacResponse" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_UnesiRadnika_InputMessage">
+    <wsdl:part name="parameters" element="tns:UnesiRadnika" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_UnesiRadnika_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UnesiRadnikaResponse" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_ListaRadnika_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListaRadnika" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_ListaRadnika_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListaRadnikaResponse" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_UnesiKupca_InputMessage">
+    <wsdl:part name="parameters" element="tns:UnesiKupca" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_UnesiKupca_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UnesiKupcaResponse" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_ComboKorisnici_InputMessage">
+    <wsdl:part name="parameters" element="tns:ComboKorisnici" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_ComboKorisnici_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ComboKorisniciResponse" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_ComboKorisniciPoruke_InputMessage">
+    <wsdl:part name="parameters" element="tns:ComboKorisniciPoruke" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_ComboKorisniciPoruke_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ComboKorisniciPorukeResponse" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_ListaKupaca_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListaKupaca" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_ListaKupaca_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListaKupacaResponse" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_ObrisiKupca_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObrisiKupca" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_ObrisiKupca_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObrisiKupcaResponse" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_UpdateKupac_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateKupac" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_UpdateKupac_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateKupacResponse" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_UnesiUsera_InputMessage">
+    <wsdl:part name="parameters" element="tns:UnesiUsera" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_UnesiUsera_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UnesiUseraResponse" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_ListaUserView_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListaUserView" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_ListaUserView_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListaUserViewResponse" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_getUsersView_InputMessage">
+    <wsdl:part name="parameters" element="tns:getUsersView" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_getUsersView_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getUsersViewResponse" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_DeleteRadnik_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRadnik" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_DeleteRadnik_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRadnikResponse" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_UpdateRadnika_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRadnika" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_UpdateRadnika_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRadnikaResponse" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_VratiKorisnika_InputMessage">
+    <wsdl:part name="parameters" element="tns:VratiKorisnika" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_VratiKorisnika_OutputMessage">
+    <wsdl:part name="parameters" element="tns:VratiKorisnikaResponse" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_EditujUsera_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditujUsera" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_EditujUsera_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditujUseraResponse" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_UpdateKorisnik_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateKorisnik" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_UpdateKorisnik_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateKorisnikResponse" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_DeleteUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUser" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_DeleteUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_PretraziRadnika_InputMessage">
+    <wsdl:part name="parameters" element="tns:PretraziRadnika" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_PretraziRadnika_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PretraziRadnikaResponse" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_PretraziDobavljaca_InputMessage">
+    <wsdl:part name="parameters" element="tns:PretraziDobavljaca" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_PretraziDobavljaca_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PretraziDobavljacaResponse" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_changeUserPocetnaOrAktivan_InputMessage">
+    <wsdl:part name="parameters" element="tns:changeUserPocetnaOrAktivan" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_changeUserPocetnaOrAktivan_OutputMessage">
+    <wsdl:part name="parameters" element="tns:changeUserPocetnaOrAktivanResponse" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_ChangeWorkerStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeWorkerStatus" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_ChangeWorkerStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeWorkerStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_unesiBug_InputMessage">
+    <wsdl:part name="parameters" element="tns:unesiBug" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_unesiBug_OutputMessage">
+    <wsdl:part name="parameters" element="tns:unesiBugResponse" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_ListaBugova_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListaBugova" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_ListaBugova_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListaBugovaResponse" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_changeBugStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:changeBugStatus" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_changeBugStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:changeBugStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_DeleteBug_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBug" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_DeleteBug_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBugResponse" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_MitarbeiterNr_InputMessage">
+    <wsdl:part name="parameters" element="tns:MitarbeiterNr" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_MitarbeiterNr_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MitarbeiterNrResponse" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_LieferantNr_InputMessage">
+    <wsdl:part name="parameters" element="tns:LieferantNr" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_LieferantNr_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LieferantNrResponse" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_KundenNr_InputMessage">
+    <wsdl:part name="parameters" element="tns:KundenNr" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_KundenNr_OutputMessage">
+    <wsdl:part name="parameters" element="tns:KundenNrResponse" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_AngebotNr_InputMessage">
+    <wsdl:part name="parameters" element="tns:AngebotNr" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_AngebotNr_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AngebotNrResponse" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_ListaPrimljenihPoruka_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListaPrimljenihPoruka" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_ListaPrimljenihPoruka_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListaPrimljenihPorukaResponse" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_ListaPoslanihPoruka_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListaPoslanihPoruka" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_ListaPoslanihPoruka_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListaPoslanihPorukaResponse" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_PosaljiPoruku_InputMessage">
+    <wsdl:part name="parameters" element="tns:PosaljiPoruku" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_PosaljiPoruku_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PosaljiPorukuResponse" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_ListaKupacaSearch_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListaKupacaSearch" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_ListaKupacaSearch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListaKupacaSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_getMaterijal_InputMessage">
+    <wsdl:part name="parameters" element="tns:getMaterijal" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_getMaterijal_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getMaterijalResponse" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_getProdukt_InputMessage">
+    <wsdl:part name="parameters" element="tns:getProdukt" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_getProdukt_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getProduktResponse" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_getPovrsinaByMaterijal_InputMessage">
+    <wsdl:part name="parameters" element="tns:getPovrsinaByMaterijal" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_getPovrsinaByMaterijal_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getPovrsinaByMaterijalResponse" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_getDebljinaByProduktId_InputMessage">
+    <wsdl:part name="parameters" element="tns:getDebljinaByProduktId" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_getDebljinaByProduktId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getDebljinaByProduktIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_getMatIdByName_InputMessage">
+    <wsdl:part name="parameters" element="tns:getMatIdByName" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_getMatIdByName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getMatIdByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_getProIdByName_InputMessage">
+    <wsdl:part name="parameters" element="tns:getProIdByName" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_getProIdByName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getProIdByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_getDebljinaIdByName_InputMessage">
+    <wsdl:part name="parameters" element="tns:getDebljinaIdByName" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_getDebljinaIdByName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getDebljinaIdByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_ListaEventaMitarbeiter_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListaEventaMitarbeiter" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_ListaEventaMitarbeiter_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListaEventaMitarbeiterResponse" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_UnesiEventMitarbeiter_InputMessage">
+    <wsdl:part name="parameters" element="tns:UnesiEventMitarbeiter" />
+  </wsdl:message>
+  <wsdl:message name="MassServis_UnesiEventMitarbeiter_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UnesiEventMitarbeiterResponse" />
+  </wsdl:message>
+  <wsdl:portType name="MassServis">
+    <wsdl:operation name="LoginValidacija">
+      <wsdl:input wsaw:Action="http://tempuri.org/MassServis/LoginValidacija" message="tns:MassServis_LoginValidacija_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/MassServis/LoginValidacijaResponse" message="tns:MassServis_LoginValidacija_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UnesiDobavljaca">
+      <wsdl:input wsaw:Action="http://tempuri.org/MassServis/UnesiDobavljaca" message="tns:MassServis_UnesiDobavljaca_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/MassServis/UnesiDobavljacaResponse" message="tns:MassServis_UnesiDobavljaca_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListaDobavljaca">
+      <wsdl:input wsaw:Action="http://tempuri.org/MassServis/ListaDobavljaca" message="tns:MassServis_ListaDobavljaca_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/MassServis/ListaDobavljacaResponse" message="tns:MassServis_ListaDobavljaca_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObrisiDobavljaca">
+      <wsdl:input wsaw:Action="http://tempuri.org/MassServis/ObrisiDobavljaca" message="tns:MassServis_ObrisiDobavljaca_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/MassServis/ObrisiDobavljacaResponse" message="tns:MassServis_ObrisiDobavljaca_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDobavljac">
+      <wsdl:input wsaw:Action="http://tempuri.org/MassServis/UpdateDobavljac" message="tns:MassServis_UpdateDobavljac_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/MassServis/UpdateDobavljacResponse" message="tns:MassServis_UpdateDobavljac_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UnesiRadnika">
+      <wsdl:input wsaw:Action="http://tempuri.org/MassServis/UnesiRadnika" message="tns:MassServis_UnesiRadnika_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/MassServis/UnesiRadnikaResponse" message="tns:MassServis_UnesiRadnika_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListaRadnika">
+      <wsdl:input wsaw:Action="http://tempuri.org/MassServis/ListaRadnika" message="tns:MassServis_ListaRadnika_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/MassServis/ListaRadnikaResponse" message="tns:MassServis_ListaRadnika_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UnesiKupca">
+      <wsdl:input wsaw:Action="http://tempuri.org/MassServis/UnesiKupca" message="tns:MassServis_UnesiKupca_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/MassServis/UnesiKupcaResponse" message="tns:MassServis_UnesiKupca_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ComboKorisnici">
+      <wsdl:input wsaw:Action="http://tempuri.org/MassServis/ComboKorisnici" message="tns:MassServis_ComboKorisnici_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/MassServis/ComboKorisniciResponse" message="tns:MassServis_ComboKorisnici_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ComboKorisniciPoruke">
+      <wsdl:input wsaw:Action="http://tempuri.org/MassServis/ComboKorisniciPoruke" message="tns:MassServis_ComboKorisniciPoruke_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/MassServis/ComboKorisniciPorukeResponse" message="tns:MassServis_ComboKorisniciPoruke_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListaKupaca">
+      <wsdl:input wsaw:Action="http://tempuri.org/MassServis/ListaKupaca" message="tns:MassServis_ListaKupaca_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/MassServis/ListaKupacaResponse" message="tns:MassServis_ListaKupaca_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObrisiKupca">
+      <wsdl:input wsaw:Action="http://tempuri.org/MassServis/ObrisiKupca" message="tns:MassServis_ObrisiKupca_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/MassServis/ObrisiKupcaResponse" message="tns:MassServis_ObrisiKupca_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateKupac">
+      <wsdl:input wsaw:Action="http://tempuri.org/MassServis/UpdateKupac" message="tns:MassServis_UpdateKupac_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/MassServis/UpdateKupacResponse" message="tns:MassServis_UpdateKupac_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UnesiUsera">
+      <wsdl:input wsaw:Action="http://tempuri.org/MassServis/UnesiUsera" message="tns:MassServis_UnesiUsera_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/MassServis/UnesiUseraResponse" message="tns:MassServis_UnesiUsera_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListaUserView">
+      <wsdl:input wsaw:Action="http://tempuri.org/MassServis/ListaUserView" message="tns:MassServis_ListaUserView_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/MassServis/ListaUserViewResponse" message="tns:MassServis_ListaUserView_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getUsersView">
+      <wsdl:input wsaw:Action="http://tempuri.org/MassServis/getUsersView" message="tns:MassServis_getUsersView_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/MassServis/getUsersViewResponse" message="tns:MassServis_getUsersView_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRadnik">
+      <wsdl:input wsaw:Action="http://tempuri.org/MassServis/DeleteRadnik" message="tns:MassServis_DeleteRadnik_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/MassServis/DeleteRadnikResponse" message="tns:MassServis_DeleteRadnik_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRadnika">
+      <wsdl:input wsaw:Action="http://tempuri.org/MassServis/UpdateRadnika" message="tns:MassServis_UpdateRadnika_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/MassServis/UpdateRadnikaResponse" message="tns:MassServis_UpdateRadnika_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="VratiKorisnika">
+      <wsdl:input wsaw:Action="http://tempuri.org/MassServis/VratiKorisnika" message="tns:MassServis_VratiKorisnika_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/MassServis/VratiKorisnikaResponse" message="tns:MassServis_VratiKorisnika_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditujUsera">
+      <wsdl:input wsaw:Action="http://tempuri.org/MassServis/EditujUsera" message="tns:MassServis_EditujUsera_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/MassServis/EditujUseraResponse" message="tns:MassServis_EditujUsera_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateKorisnik">
+      <wsdl:input wsaw:Action="http://tempuri.org/MassServis/UpdateKorisnik" message="tns:MassServis_UpdateKorisnik_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/MassServis/UpdateKorisnikResponse" message="tns:MassServis_UpdateKorisnik_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/MassServis/DeleteUser" message="tns:MassServis_DeleteUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/MassServis/DeleteUserResponse" message="tns:MassServis_DeleteUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PretraziRadnika">
+      <wsdl:input wsaw:Action="http://tempuri.org/MassServis/PretraziRadnika" message="tns:MassServis_PretraziRadnika_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/MassServis/PretraziRadnikaResponse" message="tns:MassServis_PretraziRadnika_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PretraziDobavljaca">
+      <wsdl:input wsaw:Action="http://tempuri.org/MassServis/PretraziDobavljaca" message="tns:MassServis_PretraziDobavljaca_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/MassServis/PretraziDobavljacaResponse" message="tns:MassServis_PretraziDobavljaca_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="changeUserPocetnaOrAktivan">
+      <wsdl:input wsaw:Action="http://tempuri.org/MassServis/changeUserPocetnaOrAktivan" message="tns:MassServis_changeUserPocetnaOrAktivan_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/MassServis/changeUserPocetnaOrAktivanResponse" message="tns:MassServis_changeUserPocetnaOrAktivan_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeWorkerStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/MassServis/ChangeWorkerStatus" message="tns:MassServis_ChangeWorkerStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/MassServis/ChangeWorkerStatusResponse" message="tns:MassServis_ChangeWorkerStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="unesiBug">
+      <wsdl:input wsaw:Action="http://tempuri.org/MassServis/unesiBug" message="tns:MassServis_unesiBug_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/MassServis/unesiBugResponse" message="tns:MassServis_unesiBug_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListaBugova">
+      <wsdl:input wsaw:Action="http://tempuri.org/MassServis/ListaBugova" message="tns:MassServis_ListaBugova_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/MassServis/ListaBugovaResponse" message="tns:MassServis_ListaBugova_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="changeBugStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/MassServis/changeBugStatus" message="tns:MassServis_changeBugStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/MassServis/changeBugStatusResponse" message="tns:MassServis_changeBugStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBug">
+      <wsdl:input wsaw:Action="http://tempuri.org/MassServis/DeleteBug" message="tns:MassServis_DeleteBug_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/MassServis/DeleteBugResponse" message="tns:MassServis_DeleteBug_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MitarbeiterNr">
+      <wsdl:input wsaw:Action="http://tempuri.org/MassServis/MitarbeiterNr" message="tns:MassServis_MitarbeiterNr_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/MassServis/MitarbeiterNrResponse" message="tns:MassServis_MitarbeiterNr_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LieferantNr">
+      <wsdl:input wsaw:Action="http://tempuri.org/MassServis/LieferantNr" message="tns:MassServis_LieferantNr_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/MassServis/LieferantNrResponse" message="tns:MassServis_LieferantNr_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="KundenNr">
+      <wsdl:input wsaw:Action="http://tempuri.org/MassServis/KundenNr" message="tns:MassServis_KundenNr_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/MassServis/KundenNrResponse" message="tns:MassServis_KundenNr_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AngebotNr">
+      <wsdl:input wsaw:Action="http://tempuri.org/MassServis/AngebotNr" message="tns:MassServis_AngebotNr_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/MassServis/AngebotNrResponse" message="tns:MassServis_AngebotNr_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListaPrimljenihPoruka">
+      <wsdl:input wsaw:Action="http://tempuri.org/MassServis/ListaPrimljenihPoruka" message="tns:MassServis_ListaPrimljenihPoruka_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/MassServis/ListaPrimljenihPorukaResponse" message="tns:MassServis_ListaPrimljenihPoruka_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListaPoslanihPoruka">
+      <wsdl:input wsaw:Action="http://tempuri.org/MassServis/ListaPoslanihPoruka" message="tns:MassServis_ListaPoslanihPoruka_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/MassServis/ListaPoslanihPorukaResponse" message="tns:MassServis_ListaPoslanihPoruka_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PosaljiPoruku">
+      <wsdl:input wsaw:Action="http://tempuri.org/MassServis/PosaljiPoruku" message="tns:MassServis_PosaljiPoruku_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/MassServis/PosaljiPorukuResponse" message="tns:MassServis_PosaljiPoruku_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListaKupacaSearch">
+      <wsdl:input wsaw:Action="http://tempuri.org/MassServis/ListaKupacaSearch" message="tns:MassServis_ListaKupacaSearch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/MassServis/ListaKupacaSearchResponse" message="tns:MassServis_ListaKupacaSearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getMaterijal">
+      <wsdl:input wsaw:Action="http://tempuri.org/MassServis/getMaterijal" message="tns:MassServis_getMaterijal_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/MassServis/getMaterijalResponse" message="tns:MassServis_getMaterijal_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getProdukt">
+      <wsdl:input wsaw:Action="http://tempuri.org/MassServis/getProdukt" message="tns:MassServis_getProdukt_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/MassServis/getProduktResponse" message="tns:MassServis_getProdukt_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getPovrsinaByMaterijal">
+      <wsdl:input wsaw:Action="http://tempuri.org/MassServis/getPovrsinaByMaterijal" message="tns:MassServis_getPovrsinaByMaterijal_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/MassServis/getPovrsinaByMaterijalResponse" message="tns:MassServis_getPovrsinaByMaterijal_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getDebljinaByProduktId">
+      <wsdl:input wsaw:Action="http://tempuri.org/MassServis/getDebljinaByProduktId" message="tns:MassServis_getDebljinaByProduktId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/MassServis/getDebljinaByProduktIdResponse" message="tns:MassServis_getDebljinaByProduktId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getMatIdByName">
+      <wsdl:input wsaw:Action="http://tempuri.org/MassServis/getMatIdByName" message="tns:MassServis_getMatIdByName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/MassServis/getMatIdByNameResponse" message="tns:MassServis_getMatIdByName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getProIdByName">
+      <wsdl:input wsaw:Action="http://tempuri.org/MassServis/getProIdByName" message="tns:MassServis_getProIdByName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/MassServis/getProIdByNameResponse" message="tns:MassServis_getProIdByName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getDebljinaIdByName">
+      <wsdl:input wsaw:Action="http://tempuri.org/MassServis/getDebljinaIdByName" message="tns:MassServis_getDebljinaIdByName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/MassServis/getDebljinaIdByNameResponse" message="tns:MassServis_getDebljinaIdByName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListaEventaMitarbeiter">
+      <wsdl:input wsaw:Action="http://tempuri.org/MassServis/ListaEventaMitarbeiter" message="tns:MassServis_ListaEventaMitarbeiter_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/MassServis/ListaEventaMitarbeiterResponse" message="tns:MassServis_ListaEventaMitarbeiter_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UnesiEventMitarbeiter">
+      <wsdl:input wsaw:Action="http://tempuri.org/MassServis/UnesiEventMitarbeiter" message="tns:MassServis_UnesiEventMitarbeiter_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/MassServis/UnesiEventMitarbeiterResponse" message="tns:MassServis_UnesiEventMitarbeiter_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_MassServis" type="tns:MassServis">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="LoginValidacija">
+      <soap:operation soapAction="http://tempuri.org/MassServis/LoginValidacija" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnesiDobavljaca">
+      <soap:operation soapAction="http://tempuri.org/MassServis/UnesiDobavljaca" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaDobavljaca">
+      <soap:operation soapAction="http://tempuri.org/MassServis/ListaDobavljaca" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObrisiDobavljaca">
+      <soap:operation soapAction="http://tempuri.org/MassServis/ObrisiDobavljaca" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDobavljac">
+      <soap:operation soapAction="http://tempuri.org/MassServis/UpdateDobavljac" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnesiRadnika">
+      <soap:operation soapAction="http://tempuri.org/MassServis/UnesiRadnika" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaRadnika">
+      <soap:operation soapAction="http://tempuri.org/MassServis/ListaRadnika" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnesiKupca">
+      <soap:operation soapAction="http://tempuri.org/MassServis/UnesiKupca" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ComboKorisnici">
+      <soap:operation soapAction="http://tempuri.org/MassServis/ComboKorisnici" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ComboKorisniciPoruke">
+      <soap:operation soapAction="http://tempuri.org/MassServis/ComboKorisniciPoruke" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaKupaca">
+      <soap:operation soapAction="http://tempuri.org/MassServis/ListaKupaca" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObrisiKupca">
+      <soap:operation soapAction="http://tempuri.org/MassServis/ObrisiKupca" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateKupac">
+      <soap:operation soapAction="http://tempuri.org/MassServis/UpdateKupac" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnesiUsera">
+      <soap:operation soapAction="http://tempuri.org/MassServis/UnesiUsera" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaUserView">
+      <soap:operation soapAction="http://tempuri.org/MassServis/ListaUserView" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUsersView">
+      <soap:operation soapAction="http://tempuri.org/MassServis/getUsersView" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRadnik">
+      <soap:operation soapAction="http://tempuri.org/MassServis/DeleteRadnik" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRadnika">
+      <soap:operation soapAction="http://tempuri.org/MassServis/UpdateRadnika" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VratiKorisnika">
+      <soap:operation soapAction="http://tempuri.org/MassServis/VratiKorisnika" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditujUsera">
+      <soap:operation soapAction="http://tempuri.org/MassServis/EditujUsera" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateKorisnik">
+      <soap:operation soapAction="http://tempuri.org/MassServis/UpdateKorisnik" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUser">
+      <soap:operation soapAction="http://tempuri.org/MassServis/DeleteUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PretraziRadnika">
+      <soap:operation soapAction="http://tempuri.org/MassServis/PretraziRadnika" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PretraziDobavljaca">
+      <soap:operation soapAction="http://tempuri.org/MassServis/PretraziDobavljaca" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="changeUserPocetnaOrAktivan">
+      <soap:operation soapAction="http://tempuri.org/MassServis/changeUserPocetnaOrAktivan" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeWorkerStatus">
+      <soap:operation soapAction="http://tempuri.org/MassServis/ChangeWorkerStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="unesiBug">
+      <soap:operation soapAction="http://tempuri.org/MassServis/unesiBug" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaBugova">
+      <soap:operation soapAction="http://tempuri.org/MassServis/ListaBugova" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="changeBugStatus">
+      <soap:operation soapAction="http://tempuri.org/MassServis/changeBugStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBug">
+      <soap:operation soapAction="http://tempuri.org/MassServis/DeleteBug" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MitarbeiterNr">
+      <soap:operation soapAction="http://tempuri.org/MassServis/MitarbeiterNr" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LieferantNr">
+      <soap:operation soapAction="http://tempuri.org/MassServis/LieferantNr" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KundenNr">
+      <soap:operation soapAction="http://tempuri.org/MassServis/KundenNr" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AngebotNr">
+      <soap:operation soapAction="http://tempuri.org/MassServis/AngebotNr" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaPrimljenihPoruka">
+      <soap:operation soapAction="http://tempuri.org/MassServis/ListaPrimljenihPoruka" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaPoslanihPoruka">
+      <soap:operation soapAction="http://tempuri.org/MassServis/ListaPoslanihPoruka" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PosaljiPoruku">
+      <soap:operation soapAction="http://tempuri.org/MassServis/PosaljiPoruku" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaKupacaSearch">
+      <soap:operation soapAction="http://tempuri.org/MassServis/ListaKupacaSearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMaterijal">
+      <soap:operation soapAction="http://tempuri.org/MassServis/getMaterijal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProdukt">
+      <soap:operation soapAction="http://tempuri.org/MassServis/getProdukt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPovrsinaByMaterijal">
+      <soap:operation soapAction="http://tempuri.org/MassServis/getPovrsinaByMaterijal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDebljinaByProduktId">
+      <soap:operation soapAction="http://tempuri.org/MassServis/getDebljinaByProduktId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMatIdByName">
+      <soap:operation soapAction="http://tempuri.org/MassServis/getMatIdByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProIdByName">
+      <soap:operation soapAction="http://tempuri.org/MassServis/getProIdByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDebljinaIdByName">
+      <soap:operation soapAction="http://tempuri.org/MassServis/getDebljinaIdByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaEventaMitarbeiter">
+      <soap:operation soapAction="http://tempuri.org/MassServis/ListaEventaMitarbeiter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnesiEventMitarbeiter">
+      <soap:operation soapAction="http://tempuri.org/MassServis/UnesiEventMitarbeiter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MassServis">
+    <wsdl:port name="BasicHttpBinding_MassServis" binding="tns:BasicHttpBinding_MassServis">
+      <soap:address location="http://localhost:12953/MassServis.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

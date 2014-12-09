@@ -1,0 +1,38 @@
+﻿<Window x:Class="Desktop.AuftragsSucheWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="AuftragsSucheWindow" Width="1024" MinWidth="900" MinHeight="600" Height="600" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <!--Row 01-->
+        <Grid Background="#E0E0E0" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0">
+            <Image Source="images/icons/iconAngebot.png" Height="30" HorizontalAlignment="Left" />
+            <Label Content="Auftrage Suche" FontWeight="Bold" FontSize="16" Margin="30,-3,0,0" />
+        </Grid>
+        <!--Row 02-->
+        <Grid Background="#C0C0C0" Grid.Column="0" Grid.Row="1" Height="50" Margin="0,10,0,0">
+            <Label Content="Suche:" FontWeight="Bold" FontSize="16" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,10,0,0" />
+            <RadioButton VerticalAlignment="Top" HorizontalAlignment="Left" Margin="70,14,0,0" Cursor="Hand" RenderTransformOrigin="0.671,-0.573">
+                <StackPanel Orientation="Horizontal" ClipToBounds="True">
+                    <Image  Source="ikone/IkonaBoxGreen.png" Width="25" Height="25" />
+                </StackPanel>
+            </RadioButton>
+            <RadioButton VerticalAlignment="Top" HorizontalAlignment="Left" Margin="140,14,0,0" Cursor="Hand">
+                <StackPanel Orientation="Horizontal" ClipToBounds="True">
+                    <Image  Source="ikone/IkonaBoxOrange.png" Width="25" Height="25" />
+                </StackPanel>
+            </RadioButton>
+            <Label Content="Suche nach:" FontSize="14" FontWeight="Bold" Margin="200,12,721,9"/>
+            <ComboBox Width="200" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="295,9,0,0" Cursor="Hand"></ComboBox>
+            <TextBox Width="200" Height="30" Margin="500,9,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" />
+            <Button Content="Suche beginnen" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="30" Margin="721,9,0,0" Cursor="Hand"/>
+        </Grid>
+    </Grid>
+</Window>

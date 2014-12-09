@@ -1,0 +1,48 @@
+D:\SVN\WPF\CustomControls\WPFScheduler\WpfScheduler\bin\Release\WpfScheduler.dll
+D:\SVN\WPF\CustomControls\WPFScheduler\WpfScheduler\bin\Release\WpfScheduler.pdb
+D:\SVN\WPF\CustomControls\WPFScheduler\WpfScheduler\obj\Release\MonthDay.baml
+D:\SVN\WPF\CustomControls\WPFScheduler\WpfScheduler\obj\Release\EventUserControl.baml
+D:\SVN\WPF\CustomControls\WPFScheduler\WpfScheduler\obj\Release\DayScheduler.g.cs
+D:\SVN\WPF\CustomControls\WPFScheduler\WpfScheduler\obj\Release\MonthDay.g.cs
+D:\SVN\WPF\CustomControls\WPFScheduler\WpfScheduler\obj\Release\MonthScheduler.g.cs
+D:\SVN\WPF\CustomControls\WPFScheduler\WpfScheduler\obj\Release\EventUserControl.g.cs
+D:\SVN\WPF\CustomControls\WPFScheduler\WpfScheduler\obj\Release\WeekScheduler.g.cs
+D:\SVN\WPF\CustomControls\WPFScheduler\WpfScheduler\obj\Release\Scheduler.g.cs
+D:\SVN\WPF\CustomControls\WPFScheduler\WpfScheduler\obj\Release\GeneratedInternalTypeHelper.g.cs
+D:\SVN\WPF\CustomControls\WPFScheduler\WpfScheduler\obj\Release\WpfScheduler_MarkupCompile.cache
+D:\SVN\WPF\CustomControls\WPFScheduler\WpfScheduler\obj\Release\WpfScheduler_MarkupCompile.lref
+D:\SVN\WPF\CustomControls\WPFScheduler\WpfScheduler\obj\Release\DayScheduler.baml
+D:\SVN\WPF\CustomControls\WPFScheduler\WpfScheduler\obj\Release\MonthScheduler.baml
+D:\SVN\WPF\CustomControls\WPFScheduler\WpfScheduler\obj\Release\Themes\Generic.baml
+D:\SVN\WPF\CustomControls\WPFScheduler\WpfScheduler\obj\Release\WeekScheduler.baml
+D:\SVN\WPF\CustomControls\WPFScheduler\WpfScheduler\obj\Release\Scheduler.baml
+D:\SVN\WPF\CustomControls\WPFScheduler\WpfScheduler\obj\Release\WpfScheduler.g.resources
+D:\SVN\WPF\CustomControls\WPFScheduler\WpfScheduler\obj\Release\WpfScheduler.Properties.Resources.resources
+D:\SVN\WPF\CustomControls\WPFScheduler\WpfScheduler\obj\Release\WpfScheduler.csproj.GenerateResource.Cache
+D:\SVN\WPF\CustomControls\WPFScheduler\WpfScheduler\obj\Release\WpfScheduler.dll
+D:\SVN\WPF\CustomControls\WPFScheduler\WpfScheduler\obj\Release\WpfScheduler.pdb
+D:\SVN\WPF\CustomControls\WPFScheduler\WpfScheduler\obj\Release\WpfScheduler.csprojResolveAssemblyReference.cache
+C:\Users\home\Desktop\examples\kalendar 1.1\WpfScheduler\bin\Release\WpfScheduler.dll
+C:\Users\home\Desktop\examples\kalendar 1.1\WpfScheduler\bin\Release\WpfScheduler.pdb
+C:\Users\home\Desktop\examples\kalendar 1.1\WpfScheduler\obj\Release\WpfScheduler.csprojResolveAssemblyReference.cache
+C:\Users\home\Desktop\examples\kalendar 1.1\WpfScheduler\obj\Release\MonthDay.baml
+C:\Users\home\Desktop\examples\kalendar 1.1\WpfScheduler\obj\Release\EventUserControl.baml
+C:\Users\home\Desktop\examples\kalendar 1.1\WpfScheduler\obj\Release\DayScheduler.g.cs
+C:\Users\home\Desktop\examples\kalendar 1.1\WpfScheduler\obj\Release\MonthDay.g.cs
+C:\Users\home\Desktop\examples\kalendar 1.1\WpfScheduler\obj\Release\MonthScheduler.g.cs
+C:\Users\home\Desktop\examples\kalendar 1.1\WpfScheduler\obj\Release\EventUserControl.g.cs
+C:\Users\home\Desktop\examples\kalendar 1.1\WpfScheduler\obj\Release\WeekScheduler.g.cs
+C:\Users\home\Desktop\examples\kalendar 1.1\WpfScheduler\obj\Release\Scheduler.g.cs
+C:\Users\home\Desktop\examples\kalendar 1.1\WpfScheduler\obj\Release\GeneratedInternalTypeHelper.g.cs
+C:\Users\home\Desktop\examples\kalendar 1.1\WpfScheduler\obj\Release\WpfScheduler_MarkupCompile.cache
+C:\Users\home\Desktop\examples\kalendar 1.1\WpfScheduler\obj\Release\WpfScheduler_MarkupCompile.lref
+C:\Users\home\Desktop\examples\kalendar 1.1\WpfScheduler\obj\Release\DayScheduler.baml
+C:\Users\home\Desktop\examples\kalendar 1.1\WpfScheduler\obj\Release\MonthScheduler.baml
+C:\Users\home\Desktop\examples\kalendar 1.1\WpfScheduler\obj\Release\Themes\Generic.baml
+C:\Users\home\Desktop\examples\kalendar 1.1\WpfScheduler\obj\Release\WeekScheduler.baml
+C:\Users\home\Desktop\examples\kalendar 1.1\WpfScheduler\obj\Release\Scheduler.baml
+C:\Users\home\Desktop\examples\kalendar 1.1\WpfScheduler\obj\Release\WpfScheduler.g.resources
+C:\Users\home\Desktop\examples\kalendar 1.1\WpfScheduler\obj\Release\WpfScheduler.Properties.Resources.resources
+C:\Users\home\Desktop\examples\kalendar 1.1\WpfScheduler\obj\Release\WpfScheduler.csproj.GenerateResource.Cache
+C:\Users\home\Desktop\examples\kalendar 1.1\WpfScheduler\obj\Release\WpfScheduler.dll
+C:\Users\home\Desktop\examples\kalendar 1.1\WpfScheduler\obj\Release\WpfScheduler.pdb

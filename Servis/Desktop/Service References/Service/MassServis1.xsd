@@ -1,0 +1,920 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Mass.Data" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Mass.Data" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="tbl_dobavljac">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="KtoNr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="adresa" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="banka" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="bic" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="biljeska" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="blz" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="broj_dana" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="broj_dobavljaca" type="xs:int" />
+      <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fax" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="gotovina" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="iban" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="id_dobavljac" type="xs:int" />
+      <xs:element minOccurs="0" name="id_korisnik_FK" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="mobitel" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="nacin_placanja" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="popust" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="porez" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="poslovanje" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="prezime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="promet" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="rabat" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="skype" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tbl_inventars" nillable="true" type="tns:ArrayOftbl_inventar" />
+      <xs:element minOccurs="0" name="tbl_korisnik" nillable="true" type="tns:tbl_korisnik" />
+      <xs:element minOccurs="0" name="tbl_produktions" nillable="true" type="tns:ArrayOftbl_produktion" />
+      <xs:element minOccurs="0" name="tel1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tel2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tip" type="xs:int" />
+      <xs:element minOccurs="0" name="vlasnik_racuna" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="zemlja" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ziro_racun" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tbl_dobavljac" nillable="true" type="tns:tbl_dobavljac" />
+  <xs:complexType name="ArrayOftbl_inventar">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="tbl_inventar" nillable="true" type="tns:tbl_inventar" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOftbl_inventar" nillable="true" type="tns:ArrayOftbl_inventar" />
+  <xs:complexType name="tbl_inventar">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="active" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="debljina_fk" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="defekt" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="dobavljac_fk" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="duzina" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="idinventar" type="xs:int" />
+      <xs:element minOccurs="0" name="kolicina" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="lager" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="material_name_fk" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="materijal_fk" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="namjena" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="notiz" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="reklamation" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="sifra_materijala" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="slika" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="struktura_fk" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="tbl_debljina" nillable="true" type="tns:tbl_debljina" />
+      <xs:element minOccurs="0" name="tbl_dobavljac" nillable="true" type="tns:tbl_dobavljac" />
+      <xs:element minOccurs="0" name="tbl_korisnik" nillable="true" type="tns:tbl_korisnik" />
+      <xs:element minOccurs="0" name="tbl_materijal" nillable="true" type="tns:tbl_materijal" />
+      <xs:element minOccurs="0" name="tbl_narudzbe_plocas" nillable="true" type="tns:ArrayOftbl_narudzbe_ploca" />
+      <xs:element minOccurs="0" name="tbl_struktura" nillable="true" type="tns:tbl_struktura" />
+      <xs:element minOccurs="0" name="user_fk" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="visina" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="vrijeme_unosa" nillable="true" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tbl_inventar" nillable="true" type="tns:tbl_inventar" />
+  <xs:complexType name="tbl_debljina">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="idProdukt_FK" type="xs:int" />
+      <xs:element minOccurs="0" name="id_debljina" type="xs:int" />
+      <xs:element minOccurs="0" name="naziv" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tbl_inventars" nillable="true" type="tns:ArrayOftbl_inventar" />
+      <xs:element minOccurs="0" name="tbl_produkt" nillable="true" type="tns:tbl_produkt" />
+      <xs:element minOccurs="0" name="tbl_stavkes" nillable="true" type="tns:ArrayOftbl_stavke" />
+      <xs:element minOccurs="0" name="tbl_vrsta_cijene_1s" nillable="true" type="tns:ArrayOftbl_vrsta_cijene_1" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tbl_debljina" nillable="true" type="tns:tbl_debljina" />
+  <xs:complexType name="tbl_produkt">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="idprodukt" type="xs:int" />
+      <xs:element minOccurs="0" name="naziv" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tbl_debljinas" nillable="true" type="tns:ArrayOftbl_debljina" />
+      <xs:element minOccurs="0" name="tbl_produktions" nillable="true" type="tns:ArrayOftbl_produktion" />
+      <xs:element minOccurs="0" name="tbl_reklamacijas" nillable="true" type="tns:ArrayOftbl_reklamacija" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tbl_produkt" nillable="true" type="tns:tbl_produkt" />
+  <xs:complexType name="ArrayOftbl_debljina">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="tbl_debljina" nillable="true" type="tns:tbl_debljina" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOftbl_debljina" nillable="true" type="tns:ArrayOftbl_debljina" />
+  <xs:complexType name="ArrayOftbl_produktion">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="tbl_produktion" nillable="true" type="tns:tbl_produktion" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOftbl_produktion" nillable="true" type="tns:ArrayOftbl_produktion" />
+  <xs:complexType name="tbl_produktion">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="aktivno" type="xs:int" />
+      <xs:element minOccurs="0" name="datum_zavrsetka" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="dobavljac_fk" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="dostava" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="idproduktion" type="xs:int" />
+      <xs:element minOccurs="0" name="mail" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="mjerenje" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="mjerenje_status" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="montaza" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="prodaja_na_mjestu" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="proizvod_fk" type="xs:int" />
+      <xs:element minOccurs="0" name="skica" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="skica_status" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="status" type="xs:int" />
+      <xs:element minOccurs="0" name="tbl_dobavljac" nillable="true" type="tns:tbl_dobavljac" />
+      <xs:element minOccurs="0" name="tbl_korisnik" nillable="true" type="tns:tbl_korisnik" />
+      <xs:element minOccurs="0" name="tbl_produkt" nillable="true" type="tns:tbl_produkt" />
+      <xs:element minOccurs="0" name="user_fk" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tbl_produktion" nillable="true" type="tns:tbl_produktion" />
+  <xs:complexType name="tbl_korisnik">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="aktivan" type="xs:boolean" />
+      <xs:element minOccurs="0" name="id_korisnik" type="xs:int" />
+      <xs:element minOccurs="0" name="ime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="mail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="pocetna" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="prezime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="slika" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tbl_akontacijas" nillable="true" type="tns:ArrayOftbl_akontacija" />
+      <xs:element minOccurs="0" name="tbl_angebots" nillable="true" type="tns:ArrayOftbl_angebot" />
+      <xs:element minOccurs="0" name="tbl_avans" nillable="true" type="tns:ArrayOftbl_avan" />
+      <xs:element minOccurs="0" name="tbl_dobavljacs" nillable="true" type="tns:ArrayOftbl_dobavljac" />
+      <xs:element minOccurs="0" name="tbl_greskes" nillable="true" type="tns:ArrayOftbl_greske" />
+      <xs:element minOccurs="0" name="tbl_inventars" nillable="true" type="tns:ArrayOftbl_inventar" />
+      <xs:element minOccurs="0" name="tbl_kalendars" nillable="true" type="tns:ArrayOftbl_kalendar" />
+      <xs:element minOccurs="0" name="tbl_korisnik_licencas" nillable="true" type="tns:ArrayOftbl_korisnik_licenca" />
+      <xs:element minOccurs="0" name="tbl_mit_kalendars" nillable="true" type="tns:ArrayOftbl_mit_kalendar" />
+      <xs:element minOccurs="0" name="tbl_poruka_poslanes" nillable="true" type="tns:ArrayOftbl_poruka_poslane" />
+      <xs:element minOccurs="0" name="tbl_poruka_poslanes1" nillable="true" type="tns:ArrayOftbl_poruka_poslane" />
+      <xs:element minOccurs="0" name="tbl_poruka_primljenes" nillable="true" type="tns:ArrayOftbl_poruka_primljene" />
+      <xs:element minOccurs="0" name="tbl_poruka_primljenes1" nillable="true" type="tns:ArrayOftbl_poruka_primljene" />
+      <xs:element minOccurs="0" name="tbl_pracenje_detaljis" nillable="true" type="tns:ArrayOftbl_pracenje_detalji" />
+      <xs:element minOccurs="0" name="tbl_pracenjes" nillable="true" type="tns:ArrayOftbl_pracenje" />
+      <xs:element minOccurs="0" name="tbl_produktions" nillable="true" type="tns:ArrayOftbl_produktion" />
+      <xs:element minOccurs="0" name="tbl_racun_as" nillable="true" type="tns:ArrayOftbl_racun_a" />
+      <xs:element minOccurs="0" name="tbl_racun_bs" nillable="true" type="tns:ArrayOftbl_racun_b" />
+      <xs:element minOccurs="0" name="tbl_radniks" nillable="true" type="tns:ArrayOftbl_radnik" />
+      <xs:element minOccurs="0" name="tbl_rute_kalendars" nillable="true" type="tns:ArrayOftbl_rute_kalendar" />
+      <xs:element minOccurs="0" name="telefon" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tip" type="xs:int" />
+      <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tbl_korisnik" nillable="true" type="tns:tbl_korisnik" />
+  <xs:complexType name="ArrayOftbl_akontacija">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="tbl_akontacija" nillable="true" type="tns:tbl_akontacija" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOftbl_akontacija" nillable="true" type="tns:ArrayOftbl_akontacija" />
+  <xs:complexType name="tbl_akontacija">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="broj_akontacija" type="xs:int" />
+      <xs:element minOccurs="0" name="broj_auftrage_FK" type="xs:int" />
+      <xs:element minOccurs="0" name="datum" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="id_akontacija" type="xs:int" />
+      <xs:element minOccurs="0" name="id_korisnik_FK" type="xs:int" />
+      <xs:element minOccurs="0" name="suma" type="xs:decimal" />
+      <xs:element minOccurs="0" name="tbl_auftrag" nillable="true" type="tns:tbl_auftrag" />
+      <xs:element minOccurs="0" name="tbl_korisnik" nillable="true" type="tns:tbl_korisnik" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tbl_akontacija" nillable="true" type="tns:tbl_akontacija" />
+  <xs:complexType name="tbl_auftrag">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="active" type="xs:int" />
+      <xs:element minOccurs="0" name="angebotnr_fk" type="xs:int" />
+      <xs:element minOccurs="0" name="auftragenr" type="xs:int" />
+      <xs:element minOccurs="0" name="idauftrage" type="xs:int" />
+      <xs:element minOccurs="0" name="lat" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lng" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="nabavka" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="napisan" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="preisb" type="xs:decimal" />
+      <xs:element minOccurs="0" name="preisn" type="xs:decimal" />
+      <xs:element minOccurs="0" name="printano" type="xs:int" />
+      <xs:element minOccurs="0" name="reklamacija" type="xs:int" />
+      <xs:element minOccurs="0" name="tbl_akontacijas" nillable="true" type="tns:ArrayOftbl_akontacija" />
+      <xs:element minOccurs="0" name="tbl_angebot" nillable="true" type="tns:tbl_angebot" />
+      <xs:element minOccurs="0" name="tbl_auftrag1" nillable="true" type="tns:tbl_auftrag" />
+      <xs:element minOccurs="0" name="tbl_auftrag2" nillable="true" type="tns:tbl_auftrag" />
+      <xs:element minOccurs="0" name="tbl_avans" nillable="true" type="tns:ArrayOftbl_avan" />
+      <xs:element minOccurs="0" name="tbl_narudzbe_plocas" nillable="true" type="tns:ArrayOftbl_narudzbe_ploca" />
+      <xs:element minOccurs="0" name="tbl_racun_as" nillable="true" type="tns:ArrayOftbl_racun_a" />
+      <xs:element minOccurs="0" name="tbl_reklamacijas" nillable="true" type="tns:ArrayOftbl_reklamacija" />
+      <xs:element minOccurs="0" name="uplaceno" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tbl_auftrag" nillable="true" type="tns:tbl_auftrag" />
+  <xs:complexType name="tbl_angebot">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="active" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="angebotnr" type="xs:int" />
+      <xs:element minOccurs="0" name="dodatni_opis" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="dodatni_opis2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="folder" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="idangebot" type="xs:int" />
+      <xs:element minOccurs="0" name="iduser" type="xs:int" />
+      <xs:element minOccurs="0" name="kundenr" type="xs:int" />
+      <xs:element minOccurs="0" name="napisano" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ponovo_pitati" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="porez" type="xs:int" />
+      <xs:element minOccurs="0" name="potraznja" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="preisb" type="xs:decimal" />
+      <xs:element minOccurs="0" name="preisn" type="xs:decimal" />
+      <xs:element minOccurs="0" name="status" type="xs:int" />
+      <xs:element minOccurs="0" name="tbl_auftrags" nillable="true" type="tns:ArrayOftbl_auftrag" />
+      <xs:element minOccurs="0" name="tbl_korisnik" nillable="true" type="tns:tbl_korisnik" />
+      <xs:element minOccurs="0" name="tbl_kupac" nillable="true" type="tns:tbl_kupac" />
+      <xs:element minOccurs="0" name="tbl_pracenje_detaljis" nillable="true" type="tns:ArrayOftbl_pracenje_detalji" />
+      <xs:element minOccurs="0" name="tbl_pracenjes" nillable="true" type="tns:ArrayOftbl_pracenje" />
+      <xs:element minOccurs="0" name="tbl_racun_as" nillable="true" type="tns:ArrayOftbl_racun_a" />
+      <xs:element minOccurs="0" name="tbl_stavkes" nillable="true" type="tns:ArrayOftbl_stavke" />
+      <xs:element minOccurs="0" name="upit" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="zeichnung" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tbl_angebot" nillable="true" type="tns:tbl_angebot" />
+  <xs:complexType name="ArrayOftbl_auftrag">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="tbl_auftrag" nillable="true" type="tns:tbl_auftrag" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOftbl_auftrag" nillable="true" type="tns:ArrayOftbl_auftrag" />
+  <xs:complexType name="tbl_kupac">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="adresa2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="adresa_dostava" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="adresa_fakture" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="biljeska" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="broj" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="broj_detalji" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="broj_kupac" type="xs:int" />
+      <xs:element minOccurs="0" name="detalji_rute" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="dnevni_popust" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="dostava_na" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="dostava_od" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fax" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="gotovina" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="grad" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="grupa" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="id_kupac" type="xs:int" />
+      <xs:element minOccurs="0" name="ime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ime2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="interner" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="kontakt_osobe" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="limit_narudzbe" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lk" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="mail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="mail2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="mjesto" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="naziv" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ocjena_kupca" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="placa" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="pojam" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="popust_gotovina" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="porez" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="predmet" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="predstavnik" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="prezime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="rabat" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="slobodno_polje" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tbl_angebots" nillable="true" type="tns:ArrayOftbl_angebot" />
+      <xs:element minOccurs="0" name="tbl_racun_bs" nillable="true" type="tns:ArrayOftbl_racun_b" />
+      <xs:element minOccurs="0" name="tel1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tel2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tip" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="tip_kupca" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="titel" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ulica" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="vk_cijena" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="zemlja" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tbl_kupac" nillable="true" type="tns:tbl_kupac" />
+  <xs:complexType name="ArrayOftbl_angebot">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="tbl_angebot" nillable="true" type="tns:tbl_angebot" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOftbl_angebot" nillable="true" type="tns:ArrayOftbl_angebot" />
+  <xs:complexType name="ArrayOftbl_racun_b">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="tbl_racun_b" nillable="true" type="tns:tbl_racun_b" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOftbl_racun_b" nillable="true" type="tns:ArrayOftbl_racun_b" />
+  <xs:complexType name="tbl_racun_b">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="aktivan" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="broj_racuna" type="xs:int" />
+      <xs:element minOccurs="0" name="cijena" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="datum" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="idracun_b" type="xs:int" />
+      <xs:element minOccurs="0" name="kupacnr_fk" type="xs:int" />
+      <xs:element minOccurs="0" name="pdf_link" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="porez" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="porez_iznos" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="tbl_korisnik" nillable="true" type="tns:tbl_korisnik" />
+      <xs:element minOccurs="0" name="tbl_kupac" nillable="true" type="tns:tbl_kupac" />
+      <xs:element minOccurs="0" name="tekst" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="user_fk" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tbl_racun_b" nillable="true" type="tns:tbl_racun_b" />
+  <xs:complexType name="ArrayOftbl_pracenje_detalji">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="tbl_pracenje_detalji" nillable="true" type="tns:tbl_pracenje_detalji" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOftbl_pracenje_detalji" nillable="true" type="tns:ArrayOftbl_pracenje_detalji" />
+  <xs:complexType name="tbl_pracenje_detalji">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="biljeska" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="id_korisnik_FK" type="xs:int" />
+      <xs:element minOccurs="0" name="id_ponuda_FK" type="xs:int" />
+      <xs:element minOccurs="0" name="id_pracenje_detalji" type="xs:int" />
+      <xs:element minOccurs="0" name="tbl_angebot" nillable="true" type="tns:tbl_angebot" />
+      <xs:element minOccurs="0" name="tbl_korisnik" nillable="true" type="tns:tbl_korisnik" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tbl_pracenje_detalji" nillable="true" type="tns:tbl_pracenje_detalji" />
+  <xs:complexType name="ArrayOftbl_pracenje">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="tbl_pracenje" nillable="true" type="tns:tbl_pracenje" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOftbl_pracenje" nillable="true" type="tns:ArrayOftbl_pracenje" />
+  <xs:complexType name="tbl_pracenje">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="broj_ponuda_FK" type="xs:int" />
+      <xs:element minOccurs="0" name="broj_slanja" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="drugo_slanje" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="id_korisnik_FK" type="xs:int" />
+      <xs:element minOccurs="0" name="id_pracenje" type="xs:int" />
+      <xs:element minOccurs="0" name="interval" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="interval2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="prvo_slanje" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="status" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tbl_angebot" nillable="true" type="tns:tbl_angebot" />
+      <xs:element minOccurs="0" name="tbl_korisnik" nillable="true" type="tns:tbl_korisnik" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tbl_pracenje" nillable="true" type="tns:tbl_pracenje" />
+  <xs:complexType name="ArrayOftbl_racun_a">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="tbl_racun_a" nillable="true" type="tns:tbl_racun_a" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOftbl_racun_a" nillable="true" type="tns:ArrayOftbl_racun_a" />
+  <xs:complexType name="tbl_racun_a">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="akonto" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="aktivan" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="angebotnr_fk" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="auftragenr_fk" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="broj_racun" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="cijena" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="datum" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="id_racun_a" type="xs:int" />
+      <xs:element minOccurs="0" name="kundenr" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="porez" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="tbl_angebot" nillable="true" type="tns:tbl_angebot" />
+      <xs:element minOccurs="0" name="tbl_auftrag" nillable="true" type="tns:tbl_auftrag" />
+      <xs:element minOccurs="0" name="tbl_korisnik" nillable="true" type="tns:tbl_korisnik" />
+      <xs:element minOccurs="0" name="user_fk" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tbl_racun_a" nillable="true" type="tns:tbl_racun_a" />
+  <xs:complexType name="ArrayOftbl_stavke">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="tbl_stavke" nillable="true" type="tns:tbl_stavke" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOftbl_stavke" nillable="true" type="tns:ArrayOftbl_stavke" />
+  <xs:complexType name="tbl_stavke">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="angebotnr_fk" type="xs:int" />
+      <xs:element minOccurs="0" name="debljina_fk" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="duzina" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="gehrung" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="idstavka" type="xs:int" />
+      <xs:element minOccurs="0" name="jedinica_fk" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="kolicina" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="materijal2_fk" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="materijal_fk" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="materijal_tip2_fk" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="materijal_tip_fk" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="podpozicija_fk" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="pojedinacna_cijena" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="povrsina" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="pozicija_fk" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="rabat" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="sirina" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="struktura_fk" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="tbl_angebot" nillable="true" type="tns:tbl_angebot" />
+      <xs:element minOccurs="0" name="tbl_artikli" nillable="true" type="tns:tbl_artikli" />
+      <xs:element minOccurs="0" name="tbl_artikli1" nillable="true" type="tns:tbl_artikli" />
+      <xs:element minOccurs="0" name="tbl_debljina" nillable="true" type="tns:tbl_debljina" />
+      <xs:element minOccurs="0" name="tbl_jedinica" nillable="true" type="tns:tbl_jedinica" />
+      <xs:element minOccurs="0" name="tbl_materijal" nillable="true" type="tns:tbl_materijal" />
+      <xs:element minOccurs="0" name="tbl_materijal1" nillable="true" type="tns:tbl_materijal" />
+      <xs:element minOccurs="0" name="tbl_narudzbe_plocas" nillable="true" type="tns:ArrayOftbl_narudzbe_ploca" />
+      <xs:element minOccurs="0" name="tbl_podpozicija" nillable="true" type="tns:tbl_podpozicija" />
+      <xs:element minOccurs="0" name="tbl_pozicija" nillable="true" type="tns:tbl_pozicija" />
+      <xs:element minOccurs="0" name="tbl_stavke1" nillable="true" type="tns:tbl_stavke" />
+      <xs:element minOccurs="0" name="tbl_stavke2" nillable="true" type="tns:tbl_stavke" />
+      <xs:element minOccurs="0" name="tbl_struktura" nillable="true" type="tns:tbl_struktura" />
+      <xs:element minOccurs="0" name="tekst_polje" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tip" type="xs:int" />
+      <xs:element minOccurs="0" name="ukupna_cijena" nillable="true" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tbl_stavke" nillable="true" type="tns:tbl_stavke" />
+  <xs:complexType name="tbl_artikli">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="aktivant" type="xs:int" />
+      <xs:element minOccurs="0" name="id_artikli" type="xs:int" />
+      <xs:element minOccurs="0" name="kratki_opis" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="link" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="materijal_fk" type="xs:int" />
+      <xs:element minOccurs="0" name="naziv" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="podgrupa_fk" type="xs:int" />
+      <xs:element minOccurs="0" name="sinonimi" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="slika" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="svrha" type="xs:int" />
+      <xs:element minOccurs="0" name="tbl_cijena_artikla1s" nillable="true" type="tns:ArrayOftbl_cijena_artikla1" />
+      <xs:element minOccurs="0" name="tbl_materijal" nillable="true" type="tns:tbl_materijal" />
+      <xs:element minOccurs="0" name="tbl_podgrupa" nillable="true" type="tns:tbl_podgrupa" />
+      <xs:element minOccurs="0" name="tbl_stavkes" nillable="true" type="tns:ArrayOftbl_stavke" />
+      <xs:element minOccurs="0" name="tbl_stavkes1" nillable="true" type="tns:ArrayOftbl_stavke" />
+      <xs:element minOccurs="0" name="tbl_zemlja_porijekla" nillable="true" type="tns:tbl_zemlja_porijekla" />
+      <xs:element minOccurs="0" name="vrsta" type="xs:int" />
+      <xs:element minOccurs="0" name="zemlja_porijekla_fk" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tbl_artikli" nillable="true" type="tns:tbl_artikli" />
+  <xs:complexType name="ArrayOftbl_cijena_artikla1">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="tbl_cijena_artikla1" nillable="true" type="tns:tbl_cijena_artikla1" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOftbl_cijena_artikla1" nillable="true" type="tns:ArrayOftbl_cijena_artikla1" />
+  <xs:complexType name="tbl_cijena_artikla1">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="artikl_fk" type="xs:int" />
+      <xs:element minOccurs="0" name="id_cijene_artikl1" type="xs:int" />
+      <xs:element minOccurs="0" name="iznos" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="napomena" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="opis" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tbl_artikli" nillable="true" type="tns:tbl_artikli" />
+      <xs:element minOccurs="0" name="vrsta_cijene_fk" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tbl_cijena_artikla1" nillable="true" type="tns:tbl_cijena_artikla1" />
+  <xs:complexType name="tbl_materijal">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="idmaterijal" type="xs:int" />
+      <xs:element minOccurs="0" name="naziv" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tbl_artiklis" nillable="true" type="tns:ArrayOftbl_artikli" />
+      <xs:element minOccurs="0" name="tbl_inventars" nillable="true" type="tns:ArrayOftbl_inventar" />
+      <xs:element minOccurs="0" name="tbl_povrsinas" nillable="true" type="tns:ArrayOftbl_povrsina" />
+      <xs:element minOccurs="0" name="tbl_stavkes" nillable="true" type="tns:ArrayOftbl_stavke" />
+      <xs:element minOccurs="0" name="tbl_stavkes1" nillable="true" type="tns:ArrayOftbl_stavke" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tbl_materijal" nillable="true" type="tns:tbl_materijal" />
+  <xs:complexType name="ArrayOftbl_artikli">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="tbl_artikli" nillable="true" type="tns:tbl_artikli" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOftbl_artikli" nillable="true" type="tns:ArrayOftbl_artikli" />
+  <xs:complexType name="ArrayOftbl_povrsina">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="tbl_povrsina" nillable="true" type="tns:tbl_povrsina" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOftbl_povrsina" nillable="true" type="tns:ArrayOftbl_povrsina" />
+  <xs:complexType name="tbl_povrsina">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+      <xs:element minOccurs="0" name="materijal_FK" type="xs:int" />
+      <xs:element minOccurs="0" name="pov" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tbl_materijal" nillable="true" type="tns:tbl_materijal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tbl_povrsina" nillable="true" type="tns:tbl_povrsina" />
+  <xs:complexType name="tbl_podgrupa">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="idpodgrupa" type="xs:int" />
+      <xs:element minOccurs="0" name="naziv" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="opis" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tbl_artiklis" nillable="true" type="tns:ArrayOftbl_artikli" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tbl_podgrupa" nillable="true" type="tns:tbl_podgrupa" />
+  <xs:complexType name="tbl_zemlja_porijekla">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="idzemljaporijekla" type="xs:int" />
+      <xs:element minOccurs="0" name="naziv" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="slika" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tbl_artiklis" nillable="true" type="tns:ArrayOftbl_artikli" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tbl_zemlja_porijekla" nillable="true" type="tns:tbl_zemlja_porijekla" />
+  <xs:complexType name="tbl_jedinica">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id_jedinica" type="xs:int" />
+      <xs:element minOccurs="0" name="jedinica" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tbl_narudzbe_plocas" nillable="true" type="tns:ArrayOftbl_narudzbe_ploca" />
+      <xs:element minOccurs="0" name="tbl_racun_b_pozicijes" nillable="true" type="tns:ArrayOftbl_racun_b_pozicije" />
+      <xs:element minOccurs="0" name="tbl_stavkes" nillable="true" type="tns:ArrayOftbl_stavke" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tbl_jedinica" nillable="true" type="tns:tbl_jedinica" />
+  <xs:complexType name="ArrayOftbl_narudzbe_ploca">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="tbl_narudzbe_ploca" nillable="true" type="tns:tbl_narudzbe_ploca" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOftbl_narudzbe_ploca" nillable="true" type="tns:ArrayOftbl_narudzbe_ploca" />
+  <xs:complexType name="tbl_narudzbe_ploca">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="auftragenr_fk" type="xs:int" />
+      <xs:element minOccurs="0" name="broj_ploce_fk" type="xs:int" />
+      <xs:element minOccurs="0" name="cijena" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="dobavljac" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="duzina" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="id_narudzbe" type="xs:int" />
+      <xs:element minOccurs="0" name="jedinica_fk" type="xs:int" />
+      <xs:element minOccurs="0" name="naruceno" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="proizvod_fk" type="xs:int" />
+      <xs:element minOccurs="0" name="qm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="sirina" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="tbl_auftrag" nillable="true" type="tns:tbl_auftrag" />
+      <xs:element minOccurs="0" name="tbl_inventar" nillable="true" type="tns:tbl_inventar" />
+      <xs:element minOccurs="0" name="tbl_jedinica" nillable="true" type="tns:tbl_jedinica" />
+      <xs:element minOccurs="0" name="tbl_stavke" nillable="true" type="tns:tbl_stavke" />
+      <xs:element minOccurs="0" name="woche" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tbl_narudzbe_ploca" nillable="true" type="tns:tbl_narudzbe_ploca" />
+  <xs:complexType name="ArrayOftbl_racun_b_pozicije">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="tbl_racun_b_pozicije" nillable="true" type="tns:tbl_racun_b_pozicije" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOftbl_racun_b_pozicije" nillable="true" type="tns:ArrayOftbl_racun_b_pozicije" />
+  <xs:complexType name="tbl_racun_b_pozicije">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="broj_racuna" type="xs:int" />
+      <xs:element minOccurs="0" name="cijena_jedinicna" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="idrechnungbpozicije" type="xs:int" />
+      <xs:element minOccurs="0" name="mjerna_jedinica_fk" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="povrsina" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="rabat" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="tbl_jedinica" nillable="true" type="tns:tbl_jedinica" />
+      <xs:element minOccurs="0" name="tekst" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ukupna_cijena" nillable="true" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tbl_racun_b_pozicije" nillable="true" type="tns:tbl_racun_b_pozicije" />
+  <xs:complexType name="tbl_podpozicija">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="cijena" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="idpodpozicija" type="xs:int" />
+      <xs:element minOccurs="0" name="jedinica" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="naziv" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="pozicija_fk" type="xs:int" />
+      <xs:element minOccurs="0" name="standard" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tbl_pozicija" nillable="true" type="tns:tbl_pozicija" />
+      <xs:element minOccurs="0" name="tbl_stavkes" nillable="true" type="tns:ArrayOftbl_stavke" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tbl_podpozicija" nillable="true" type="tns:tbl_podpozicija" />
+  <xs:complexType name="tbl_pozicija">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="idpozicija" type="xs:int" />
+      <xs:element minOccurs="0" name="naziv" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tbl_podpozicijas" nillable="true" type="tns:ArrayOftbl_podpozicija" />
+      <xs:element minOccurs="0" name="tbl_stavkes" nillable="true" type="tns:ArrayOftbl_stavke" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tbl_pozicija" nillable="true" type="tns:tbl_pozicija" />
+  <xs:complexType name="ArrayOftbl_podpozicija">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="tbl_podpozicija" nillable="true" type="tns:tbl_podpozicija" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOftbl_podpozicija" nillable="true" type="tns:ArrayOftbl_podpozicija" />
+  <xs:complexType name="tbl_struktura">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="idstruktura" type="xs:int" />
+      <xs:element minOccurs="0" name="naziv" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tbl_inventars" nillable="true" type="tns:ArrayOftbl_inventar" />
+      <xs:element minOccurs="0" name="tbl_stavkes" nillable="true" type="tns:ArrayOftbl_stavke" />
+      <xs:element minOccurs="0" name="tbl_vrsta_cijene_1s" nillable="true" type="tns:ArrayOftbl_vrsta_cijene_1" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tbl_struktura" nillable="true" type="tns:tbl_struktura" />
+  <xs:complexType name="ArrayOftbl_vrsta_cijene_1">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="tbl_vrsta_cijene_1" nillable="true" type="tns:tbl_vrsta_cijene_1" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOftbl_vrsta_cijene_1" nillable="true" type="tns:ArrayOftbl_vrsta_cijene_1" />
+  <xs:complexType name="tbl_vrsta_cijene_1">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="active" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="angebot_koeficijent" type="xs:decimal" />
+      <xs:element minOccurs="0" name="debljina" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="debljina_fk" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="id_vrsta_cijene" type="xs:int" />
+      <xs:element minOccurs="0" name="koeficijent1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="koeficijent2" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="mjerna_jedinica" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="napomena" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="napomena_porez" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="naziv" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="opis" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="prikazati_na" type="xs:int" />
+      <xs:element minOccurs="0" name="struktura_fk" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="tbl_debljina" nillable="true" type="tns:tbl_debljina" />
+      <xs:element minOccurs="0" name="tbl_struktura" nillable="true" type="tns:tbl_struktura" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tbl_vrsta_cijene_1" nillable="true" type="tns:tbl_vrsta_cijene_1" />
+  <xs:complexType name="ArrayOftbl_avan">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="tbl_avan" nillable="true" type="tns:tbl_avan" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOftbl_avan" nillable="true" type="tns:ArrayOftbl_avan" />
+  <xs:complexType name="tbl_avan">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="broj_auftrage_FK" type="xs:int" />
+      <xs:element minOccurs="0" name="datum" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="id_avans" type="xs:int" />
+      <xs:element minOccurs="0" name="id_korisnik_FK" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="nacin" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tbl_auftrag" nillable="true" type="tns:tbl_auftrag" />
+      <xs:element minOccurs="0" name="tbl_korisnik" nillable="true" type="tns:tbl_korisnik" />
+      <xs:element minOccurs="0" name="uplatio" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tbl_avan" nillable="true" type="tns:tbl_avan" />
+  <xs:complexType name="ArrayOftbl_reklamacija">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="tbl_reklamacija" nillable="true" type="tns:tbl_reklamacija" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOftbl_reklamacija" nillable="true" type="tns:ArrayOftbl_reklamacija" />
+  <xs:complexType name="tbl_reklamacija">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="biljeska" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="broj_auftrage_FK" type="xs:int" />
+      <xs:element minOccurs="0" name="datum" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="folder" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="id_produkt_FK" type="xs:int" />
+      <xs:element minOccurs="0" name="id_reklamacija" type="xs:int" />
+      <xs:element minOccurs="0" name="radnik" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="suma" type="xs:decimal" />
+      <xs:element minOccurs="0" name="tbl_auftrag" nillable="true" type="tns:tbl_auftrag" />
+      <xs:element minOccurs="0" name="tbl_produkt" nillable="true" type="tns:tbl_produkt" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tbl_reklamacija" nillable="true" type="tns:tbl_reklamacija" />
+  <xs:complexType name="ArrayOftbl_dobavljac">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="tbl_dobavljac" nillable="true" type="tns:tbl_dobavljac" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOftbl_dobavljac" nillable="true" type="tns:ArrayOftbl_dobavljac" />
+  <xs:complexType name="ArrayOftbl_greske">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="tbl_greske" nillable="true" type="tns:tbl_greske" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOftbl_greske" nillable="true" type="tns:ArrayOftbl_greske" />
+  <xs:complexType name="tbl_greske">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="datum" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+      <xs:element minOccurs="0" name="idUser" type="xs:int" />
+      <xs:element minOccurs="0" name="sadrzaj" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="status" type="xs:boolean" />
+      <xs:element minOccurs="0" name="tbl_korisnik" nillable="true" type="tns:tbl_korisnik" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tbl_greske" nillable="true" type="tns:tbl_greske" />
+  <xs:complexType name="ArrayOftbl_kalendar">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="tbl_kalendar" nillable="true" type="tns:tbl_kalendar" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOftbl_kalendar" nillable="true" type="tns:ArrayOftbl_kalendar" />
+  <xs:complexType name="tbl_kalendar">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="aktivan" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="datum" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="datum1" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="id_kalendar" type="xs:int" />
+      <xs:element minOccurs="0" name="id_korisnik_FK" type="xs:int" />
+      <xs:element minOccurs="0" name="mjesto" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="opis" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="pozicija" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tbl_korisnik" nillable="true" type="tns:tbl_korisnik" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tbl_kalendar" nillable="true" type="tns:tbl_kalendar" />
+  <xs:complexType name="ArrayOftbl_korisnik_licenca">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="tbl_korisnik_licenca" nillable="true" type="tns:tbl_korisnik_licenca" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOftbl_korisnik_licenca" nillable="true" type="tns:ArrayOftbl_korisnik_licenca" />
+  <xs:complexType name="tbl_korisnik_licenca">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="aktivan" type="xs:boolean" />
+      <xs:element minOccurs="0" name="datum" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="id_korisnik_FK" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="id_licenca" type="xs:int" />
+      <xs:element minOccurs="0" name="tbl_korisnik" nillable="true" type="tns:tbl_korisnik" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tbl_korisnik_licenca" nillable="true" type="tns:tbl_korisnik_licenca" />
+  <xs:complexType name="ArrayOftbl_mit_kalendar">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="tbl_mit_kalendar" nillable="true" type="tns:tbl_mit_kalendar" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOftbl_mit_kalendar" nillable="true" type="tns:ArrayOftbl_mit_kalendar" />
+  <xs:complexType name="tbl_mit_kalendar">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="biljeska" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="datu1" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="datum" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="id_kalendar" type="xs:int" />
+      <xs:element minOccurs="0" name="id_korisnik_FK" type="xs:int" />
+      <xs:element minOccurs="0" name="odobreno" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="pogledno" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="tbl_korisnik" nillable="true" type="tns:tbl_korisnik" />
+      <xs:element minOccurs="0" name="tip" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tbl_mit_kalendar" nillable="true" type="tns:tbl_mit_kalendar" />
+  <xs:complexType name="ArrayOftbl_poruka_poslane">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="tbl_poruka_poslane" nillable="true" type="tns:tbl_poruka_poslane" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOftbl_poruka_poslane" nillable="true" type="tns:ArrayOftbl_poruka_poslane" />
+  <xs:complexType name="tbl_poruka_poslane">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="datum" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="id_poruka_poslane" type="xs:int" />
+      <xs:element minOccurs="0" name="naslov" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="poslao" type="xs:int" />
+      <xs:element minOccurs="0" name="predmet" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="primio" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="tbl_korisnik" nillable="true" type="tns:tbl_korisnik" />
+      <xs:element minOccurs="0" name="tbl_korisnik1" nillable="true" type="tns:tbl_korisnik" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tbl_poruka_poslane" nillable="true" type="tns:tbl_poruka_poslane" />
+  <xs:complexType name="ArrayOftbl_poruka_primljene">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="tbl_poruka_primljene" nillable="true" type="tns:tbl_poruka_primljene" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOftbl_poruka_primljene" nillable="true" type="tns:ArrayOftbl_poruka_primljene" />
+  <xs:complexType name="tbl_poruka_primljene">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="datum" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="id_poruka_primljene" type="xs:int" />
+      <xs:element minOccurs="0" name="naslov" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="poslao" type="xs:int" />
+      <xs:element minOccurs="0" name="predmet" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="primio" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="procitano" type="xs:boolean" />
+      <xs:element minOccurs="0" name="tbl_korisnik" nillable="true" type="tns:tbl_korisnik" />
+      <xs:element minOccurs="0" name="tbl_korisnik1" nillable="true" type="tns:tbl_korisnik" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tbl_poruka_primljene" nillable="true" type="tns:tbl_poruka_primljene" />
+  <xs:complexType name="ArrayOftbl_radnik">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="tbl_radnik" nillable="true" type="tns:tbl_radnik" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOftbl_radnik" nillable="true" type="tns:ArrayOftbl_radnik" />
+  <xs:complexType name="tbl_radnik">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="KtoNr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="adresa" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="banka" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="bic" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="biljeska" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="blz" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="bolovanje" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="broj_nedelja" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="broj_plate" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="datum" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fax" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="folder" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="iban" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="id_korisnik_FK" type="xs:int" />
+      <xs:element minOccurs="0" name="id_radnik" type="xs:int" />
+      <xs:element minOccurs="0" name="ime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="mobitel" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="odmor" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="odmor_na" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="prezime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="satnica" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="sifra_radnik" type="xs:int" />
+      <xs:element minOccurs="0" name="skype" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="status" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="tbl_korisnik" nillable="true" type="tns:tbl_korisnik" />
+      <xs:element minOccurs="0" name="tel1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tel2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tip" type="xs:int" />
+      <xs:element minOccurs="0" name="vlasnik_racuna" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="zarada" nillable="true" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tbl_radnik" nillable="true" type="tns:tbl_radnik" />
+  <xs:complexType name="ArrayOftbl_rute_kalendar">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="tbl_rute_kalendar" nillable="true" type="tns:tbl_rute_kalendar" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOftbl_rute_kalendar" nillable="true" type="tns:ArrayOftbl_rute_kalendar" />
+  <xs:complexType name="tbl_rute_kalendar">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="dan" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="datum_kraj" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="datum_pocetak" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="id_korisnik_FK" type="xs:int" />
+      <xs:element minOccurs="0" name="id_mit_kalendar" type="xs:int" />
+      <xs:element minOccurs="0" name="opis" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="sedmica" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="tbl_korisnik" nillable="true" type="tns:tbl_korisnik" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tbl_rute_kalendar" nillable="true" type="tns:tbl_rute_kalendar" />
+  <xs:complexType name="ArrayOftbl_korisnik">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="tbl_korisnik" nillable="true" type="tns:tbl_korisnik" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOftbl_korisnik" nillable="true" type="tns:ArrayOftbl_korisnik" />
+  <xs:complexType name="ArrayOftbl_kupac">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="tbl_kupac" nillable="true" type="tns:tbl_kupac" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOftbl_kupac" nillable="true" type="tns:ArrayOftbl_kupac" />
+  <xs:complexType name="ArrayOfp_get_User_ViewResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="p_get_User_ViewResult" nillable="true" type="tns:p_get_User_ViewResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfp_get_User_ViewResult" nillable="true" type="tns:ArrayOfp_get_User_ViewResult" />
+  <xs:complexType name="p_get_User_ViewResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="aktivan" type="xs:boolean" />
+      <xs:element minOccurs="0" name="datum" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="id_korisnik" type="xs:int" />
+      <xs:element minOccurs="0" name="ime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="mail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="pocetna" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="prezime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="slika" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="telefon" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tip" type="xs:int" />
+      <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="p_get_User_ViewResult" nillable="true" type="tns:p_get_User_ViewResult" />
+  <xs:complexType name="ArrayOftbl_materijal">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="tbl_materijal" nillable="true" type="tns:tbl_materijal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOftbl_materijal" nillable="true" type="tns:ArrayOftbl_materijal" />
+  <xs:complexType name="ArrayOftbl_produkt">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="tbl_produkt" nillable="true" type="tns:tbl_produkt" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOftbl_produkt" nillable="true" type="tns:ArrayOftbl_produkt" />
+</xs:schema>

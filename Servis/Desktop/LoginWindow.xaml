@@ -1,0 +1,74 @@
+﻿<Window x:Class="Desktop.LoginWindow" x:Name="Window"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+        Title="LoginWindow" Height="320" Width="446" SizeToContent="WidthAndHeight" Visibility="{Binding Vidljivost, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" WindowStartupLocation="CenterScreen">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Closed" >
+            <i:InvokeCommandAction Command="{Binding Path=DataContext.Closed , ElementName=Window}" />
+
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <Grid >
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Column="0" Grid.Row="0"  Background="#5A5A5A">
+                <Image Source="ikone/header.png" Width="50" Height="40" HorizontalAlignment="Left" Margin="5,0,10,0"/>
+            </StackPanel >
+
+            <Grid Grid.Column="0" Grid.Row="1" Margin="40,40,40,10" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <StackPanel Orientation="Horizontal" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center">
+                    <TextBlock Text="{Binding Validacija1}"  Foreground="#FFFFFF" Background="{Binding Pozadina}" Width="350" TextAlignment="Center" />
+                </StackPanel>
+                <StackPanel Grid.Row="1" Grid.Column="0" Margin="68,7,85,0" Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Image Source="ikone/IkonaProfila.png" Height="25" Width="25" HorizontalAlignment="Left"/>
+                    <TextBox Width="180" Height="25" Text="{Binding KorisnickoIme}" ToolTip="Benutzername"/>
+                </StackPanel>
+                <StackPanel Grid.Row="2" Grid.Column="0" Margin="68,7,85,0" Orientation="Horizontal" HorizontalAlignment="Center" >
+                    <Image Source="ikone/IkonaMaterialBestellung.png" Height="25" Width="25" HorizontalAlignment="Left"/>
+                    <PasswordBox Name="txtPassword" Width="180" Height="25" ToolTip="Passwort">
+                        <PasswordBox.InputBindings>
+                            <KeyBinding Key="Enter" Command="{Binding LoginClick}" CommandParameter="{Binding ElementName=txtPassword}"/>
+                        </PasswordBox.InputBindings>
+                    </PasswordBox>
+                </StackPanel>
+                <CheckBox Content="Mich erinnern" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Center" Margin="0,5,0,0" Visibility="Hidden"/>
+                <Button Content="Anmelden" Grid.Row="4" Grid.Column="0" Width="120" Foreground="#FFFFFF" Background="#3B3B3B" Margin="0,5,0,0" Command="{Binding LoginClick}" CommandParameter="{Binding ElementName=txtPassword}" Cursor="Hand" />
+            </Grid>
+
+            <StackPanel Grid.Column="0" Grid.Row="2"  Background="#5A5A5A" Orientation="Horizontal">
+                <StackPanel >
+                    <Image Source="ikone/header.png" Width="50" Height="40" HorizontalAlignment="Left" Margin="5,0,10,0"/>
+                </StackPanel>
+                <StackPanel >
+                    <Image Source="ikone/footer1.png" Width="50" Height="40" HorizontalAlignment="Left" Margin="5,0,10,0"/>
+                </StackPanel>
+                <StackPanel >
+                    <TextBlock>
+                            <Hyperlink NavigateUri="http://www.maag-projekt.com">
+                                <Image Source="ikone/footer2.png" Width="50" Height="40" HorizontalAlignment="Left" Margin="5,0,10,0" />
+                            </Hyperlink>
+                    </TextBlock>
+                                        
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

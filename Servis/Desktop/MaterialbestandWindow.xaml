@@ -1,0 +1,129 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="MassProject.MaterialbestandWindow"
+	x:Name="Window"
+	Title="MaterialbestandWindow"
+	Width="1148" Height="526" SizeToContent="WidthAndHeight" SizeChanged="Window_SizeChanged" WindowStartupLocation="CenterScreen">
+
+	<Grid x:Name="MaterialbestandWindowGrid" Margin="0,0,14,0">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*"/>
+				<ColumnDefinition />
+			</Grid.ColumnDefinitions>
+
+			<StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Margin="10,10,10,10" Height="40" >
+				<StackPanel.Background>
+					<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+						<GradientStop Color="#FFFFFF" Offset="0"/>
+						<GradientStop Color="#CCCCCC" Offset="1"/>
+					</LinearGradientBrush>
+				</StackPanel.Background>
+				<Label Content="Gesamtmaterial:" Foreground="#AB9595" VerticalAlignment="Center" />
+				<Label Name="lblGesamtmaterial" Width="80" Height="25" VerticalAlignment="Center" />
+				<Label Content="Gesamtsumme Netto:" Foreground="#AB9595" VerticalAlignment="Center" />
+				<Label Name="lblGesamtsummeNetto" Width="100" Height="25" VerticalAlignment="Center" />
+				<Label Content="Gesamtsumme Brutto:" Foreground="#AB9595" VerticalAlignment="Center" />
+				<Label Name="lblGesamtsummeBrutto" Width="100" Height="25" VerticalAlignment="Center" />
+				<Label Content="Gesamtmaterial die keinen Listpreis haben:" Foreground="#AB9595" VerticalAlignment="Center" />
+				<Label Name="lblGesamtmaterialList" Width="100" Height="25" VerticalAlignment="Center" />
+            <Button Background="#C9403A" Height="25" VerticalAlignment="Center" Cursor="Hand">
+					<StackPanel Orientation="Horizontal" Margin="0,0,6,0">
+						<Image Source="ikone/IkonaHelp.png"/>
+						<TextBlock Text="Hilfe" VerticalAlignment="Center" Foreground="WHite"/>
+					</StackPanel>
+				</Button>
+			</StackPanel>
+			
+			<Grid Grid.Column="0" Grid.Row="1"  HorizontalAlignment="Left">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="Auto"/>
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="*"/>
+					</Grid.ColumnDefinitions>
+
+					<Label Content="Material type:" FontSize="14" Grid.Row="0" Grid.Column="0" Margin="10,0,0,0"/>
+            <ComboBox Name="cmbMaterialType" Grid.Row="0" Grid.Column="1" Width="180" Height="25" Margin="10,4,0,10" HorizontalAlignment="Left" Cursor="Hand"/>
+
+					<Label Content="Stärke:" FontSize="14" Grid.Row="1" Grid.Column="0" Margin="10,0,0,0"/>
+            <ComboBox Name="cmbStarke" Grid.Row="1" Grid.Column="1" Width="180" Height="25" Margin="10,4,0,10" HorizontalAlignment="Left" Cursor="Hand"/>
+
+					<Label Content="Suche:" FontSize="14" Grid.Row="2" Grid.Column="0" Margin="10,0,0,0"/>
+					<StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="2" Margin="0,0,0,17">
+						<StackPanel Orientation="Horizontal" Margin="10,0,-96,10">
+                    <CheckBox Content="Material type" Margin="0,0,15,0" Cursor="Hand"/>
+                    <CheckBox Content="Oberfläche" Margin="0,0,15,0" Cursor="Hand"/>
+                    <CheckBox Content="Stärke" Margin="0,0,15,0" Cursor="Hand"/>
+                    <CheckBox Content="Material name" Margin="0,0,15,0" Cursor="Hand"/>
+                </StackPanel>
+						<StackPanel Orientation="Horizontal" Margin="10,0,0,0">
+                    <CheckBox Content="Alle Materialien ohne Preis" Cursor="Hand"/>
+						</StackPanel>
+					</StackPanel>
+			</Grid>
+			<Grid Grid.Column="1" Grid.Row="1" HorizontalAlignment="Right">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="Auto"/>
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="*"/>
+				</Grid.ColumnDefinitions>
+				<Label Content="Oberfläche:" FontSize="14" Grid.Row="0" Grid.Column="0" Margin="10,0,0,0"/>
+            <ComboBox Name="cmbOberflache" Grid.Row="0" Grid.Column="1" Width="180" Height="25" Margin="10,4,0,10" HorizontalAlignment="Left" Cursor="Hand"/>
+
+					<Label Content="Material name:" FontSize="14" Grid.Row="1" Grid.Column="0" Margin="10,0,0,0"/>
+					<TextBox Name="txtMaterialName" Width="180" Height="25" Grid.Row="1" Grid.Column="1" Margin="10,0,0,0"/>
+            <Button Grid.Row="2" Grid.ColumnSpan="2" Width="120" Height="25" Margin="63,5,0,0" Cursor="Hand">
+						<StackPanel Orientation="Horizontal">
+							<Image Source="ikone/IkonaPretraga.png"/>
+							<TextBlock Text="Suche beginnen" VerticalAlignment="Center"/>
+						</StackPanel>
+					</Button>
+			</Grid>
+
+			<StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="0"  Grid.ColumnSpan="2" Margin="10" Background="#E0E0E0">
+				<Image Source="ikone\IkonaMaterialBestand.png"/>
+				<TextBlock Text="Materialbestand" FontWeight="Bold" FontSize="14" VerticalAlignment="Center"/>
+			</StackPanel>
+
+			<StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Right" Margin="0,0,20,0" >
+				<Label Content="Suche:"/>
+				<TextBox Width="180" Height="25"/>
+			</StackPanel>
+			<DataGrid Name="datagrid1" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="4" HorizontalAlignment="Left"    SelectionMode="Single" ItemsSource="{Binding}"
+						AutoGenerateColumns="False" FontSize="14" CanUserAddRows="false" IsReadOnly="True" CanUserResizeColumns="True" Margin="20,5,20,10" >
+				<DataGrid.Columns>
+                <DataGridTextColumn Header="Geschn." Width="*" x:Name="col1_1"/>
+                <DataGridTextColumn Header="BN" Width="*" x:Name="col1_2"/>
+                <DataGridTextColumn Header="Lager" Width="*" x:Name="col1_3"/>
+                <DataGridTextColumn Header="Mat ID Nr." Width="*" x:Name="col1_4"/>
+                    <DataGridTextColumn Header="Mat T." Width="*" x:Name="col1_5"/>
+                    <DataGridTextColumn Header="Mat." Width="*" x:Name="col1_6"/>
+                    <DataGridTextColumn Header="Stk" Width="*" x:Name="col1_7"/>
+                    <DataGridTextColumn Header="Fläche" Width="*" x:Name="col1_8"/>
+                    <DataGridTextColumn Header="Oberfläche" Width="*" x:Name="col1_9"/>
+                    <DataGridTextColumn Header="Gnt. für" Width="*" x:Name="col1_10"/>
+                    <DataGridTextColumn Header="Lieferant" Width="*" x:Name="col1_11"/>
+                    <DataGridTextColumn Header="Bsch." Width="*" x:Name="col1_12"/>
+                    <DataGridTextColumn Header="Foto" Width="*" x:Name="col1_13"/>
+                    <DataGridTextColumn Header="Sektor" Width="*" x:Name="col1_14"/>
+                    <DataGridTextColumn Header="R" Width="*" x:Name="col1_15"/>
+				
+				</DataGrid.Columns>
+			</DataGrid>
+	</Grid>
+</Window>

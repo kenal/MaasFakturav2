@@ -1,0 +1,92 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="MassProject.TechnikerWindow"
+	x:Name="Window"
+	Title="Techniker"
+	Width="964" Height="547"
+	SizeToContent="WidthAndHeight" SizeChanged="Window_SizeChanged" WindowStartupLocation="CenterScreen">
+
+	<Grid x:Name="TechinkerWindowGrid">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition/>
+		</Grid.ColumnDefinitions>
+		<StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0" Background="#E0E0E0" Height="30">
+			<TextBlock Text="    Techniker" FontSize="14" FontWeight="Bold" VerticalAlignment="Center"/>
+		</StackPanel>
+
+		<Grid Grid.Row="1" Grid.Column="0" Margin="5">
+			<Grid.Background>
+				<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+					<GradientStop Color="#FEFEFE" Offset="0"/>
+					<GradientStop Color="#CFCFCF" Offset="1"/>
+				</LinearGradientBrush>
+			</Grid.Background>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto"/>
+				<RowDefinition Height="Auto"/>
+				<RowDefinition Height="Auto"/>
+				<RowDefinition Height="Auto"/>
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="Auto"/>
+			</Grid.ColumnDefinitions>
+
+
+			<StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0">
+                <RadioButton Content="Aufmaß" Name="rbtAufmass" GroupName="Tech" Margin="10" Cursor="Hand"/>
+                <RadioButton Content="Anlieferung" Name="rbtAnlieferung" GroupName="Tech" Margin="10" Cursor="Hand"/>
+                <RadioButton Content="Monntage" Name="rbtMontage" GroupName="Tech" Margin="10" Cursor="Hand"/>
+                <RadioButton Content="Alles" Name="rbtAlles" GroupName="Tech" Margin="10" Cursor="Hand"/>
+		    </StackPanel>
+			<StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="0" Margin="10,0,0,0">
+				<Label Content="Start:  " FontSize="14" FontWeight="Bold"/>
+				<TextBox Name="txtStart" Width="130" Height="25" />
+				<Label Content="   Ende:  " FontSize="14" FontWeight="Bold"/>
+				<TextBox Name="txtEnde" Width="130" Height="25"/>
+
+			</StackPanel>
+			<StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="0" Height="30" Margin="10,10,0,30">
+                <Button Margin="0,0,50,0" Cursor="Hand">
+					<StackPanel Orientation="Horizontal">
+						<Image Source="ikone\IkonaPretraga.png" Margin="5,0,0,0"/>
+						<TextBlock Text="Suche beginnen" FontSize="14" VerticalAlignment="Center" Margin="0,0,5,0"/>
+					</StackPanel>
+					</Button>
+                <Button Cursor="Hand">
+					<StackPanel Orientation="Horizontal">
+						<Image Source="ikone\IkonaNeustart.png" Margin="5,0,0,0"/>
+						<TextBlock Text="Neustart" FontSize="14" VerticalAlignment="Center" Margin="0,0,5,0"/>
+					</StackPanel> 
+				</Button>	
+			</StackPanel>
+		</Grid>
+		<StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Right" Margin="746,10,10,5" >
+			<Label Content="Suche:" FontSize="14"/>
+			<TextBox Name="txtSucheTechniker" Width="130" Height="25"/>
+			
+		</StackPanel>
+
+		<DataGrid Name="datagrid1" HorizontalAlignment="Left" VerticalAlignment="Top"   SelectionMode="Single" ItemsSource="{Binding}"
+						AutoGenerateColumns="False" FontSize="14" CanUserAddRows="false" IsReadOnly="True" CanUserResizeColumns="True" Grid.Row="3" Grid.Column="0"  Margin="10,0">
+			<DataGrid.Columns>
+                <DataGridTextColumn Header="Geschrieben" Width="*" x:Name="col1_1"/>
+                <DataGridTextColumn Header="AB" Width="*" x:Name="col1_2"/>
+                <DataGridTextColumn Header="Kunde Nr" Width="*" x:Name="col1_3" />
+                <DataGridTextColumn Header="Kunde" Width="*" x:Name="col1_4"/>
+                <DataGridTextColumn Header="Netto" Width="*" x:Name="col1_5"/>
+                <DataGridTextColumn Header="Aufmaß" Width="*" x:Name="col1_6"/>
+                <DataGridTextColumn Header="Anlieferung" Width="*" x:Name="col1_7"/>
+                <DataGridTextColumn Header="Montage" Width="*" x:Name="col1_8"/>
+                <DataGridTextColumn Header="Techniker" Width="*" x:Name="col1_9"/>
+                <DataGridTemplateColumn Header="Akt" Width="*" x:Name="col1_10"/>
+			</DataGrid.Columns>
+		</DataGrid>
+	</Grid>
+</Window>
