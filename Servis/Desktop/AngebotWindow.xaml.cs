@@ -436,7 +436,7 @@ namespace Desktop
 
             vertRowPosition = vertRowPosition + 30;
             scr01.ScrollToBottom();
-            if (rowId > 6)
+            if (lastRowId > 6)
             {
                 if(grdHeaders.Margin.Left == 0)
                 grdHeaders.Margin = new Thickness(-14, grdHeaders.Margin.Top, 0, 0);
@@ -626,7 +626,7 @@ namespace Desktop
 
             vertRowPosition = vertRowPosition + 30;
             scr01.ScrollToBottom();
-            if (rowId > 6)
+            if (lastRowId > 6)
             {
                 if (grdHeaders.Margin.Left == 0)
                     grdHeaders.Margin = new Thickness(-14, grdHeaders.Margin.Top, 0, 0);
@@ -734,7 +734,7 @@ namespace Desktop
 
             vertRowPosition = vertRowPosition + 30;
             scr01.ScrollToBottom();
-            if (rowId > 6)
+            if (lastRowId > 6)
             {
                 if (grdHeaders.Margin.Left == 0)
                     grdHeaders.Margin = new Thickness(-14, grdHeaders.Margin.Top, 0, 0);
