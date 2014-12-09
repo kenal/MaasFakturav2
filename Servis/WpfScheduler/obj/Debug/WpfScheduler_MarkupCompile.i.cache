@@ -16,5 +16,5 @@ DEBUG;TRACE
 12-1401562060
 DayScheduler.xaml;MonthDay.xaml;MonthScheduler.xaml;Themes\Generic.xaml;EventUserControl.xaml;WeekScheduler.xaml;Scheduler.xaml;
 
-True
+False
 
