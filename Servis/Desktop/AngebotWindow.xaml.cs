@@ -438,8 +438,8 @@ namespace Desktop
             scr01.ScrollToBottom();
             if (rowId > 6)
             {
-                var marHeaders = grdHeaders.Margin.Left - 30;
-                grdHeaders.Margin = new Thickness(marHeaders, grdHeaders.Margin.Top, 0, 0);
+                if(grdHeaders.Margin.Left == 0)
+                grdHeaders.Margin = new Thickness(-14, grdHeaders.Margin.Top, 0, 0);
             }
         }
         #endregion
@@ -626,6 +626,11 @@ namespace Desktop
 
             vertRowPosition = vertRowPosition + 30;
             scr01.ScrollToBottom();
+            if (rowId > 6)
+            {
+                if (grdHeaders.Margin.Left == 0)
+                    grdHeaders.Margin = new Thickness(-14, grdHeaders.Margin.Top, 0, 0);
+            }
         }
         #endregion
 
@@ -729,6 +734,11 @@ namespace Desktop
 
             vertRowPosition = vertRowPosition + 30;
             scr01.ScrollToBottom();
+            if (rowId > 6)
+            {
+                if (grdHeaders.Margin.Left == 0)
+                    grdHeaders.Margin = new Thickness(-14, grdHeaders.Margin.Top, 0, 0);
+            }
         }
         #endregion
 
@@ -898,6 +908,12 @@ namespace Desktop
             }
             vertRowPosition = vertRowPosition - 30;
             lastRowId = lastRowId - 1;
+
+            if (lastRowId < 7)
+            {
+                if (grdHeaders.Margin.Left == -14)
+                    grdHeaders.Margin = new Thickness(0, grdHeaders.Margin.Top, 0, 0);
+            }
         }
         #endregion
 
@@ -1054,6 +1070,11 @@ namespace Desktop
             }
             vertRowPosition = vertRowPosition - 30;
             lastRowId = lastRowId - 1;
+            if (lastRowId < 7)
+            {
+                if (grdHeaders.Margin.Left == -14)
+                    grdHeaders.Margin = new Thickness(0, grdHeaders.Margin.Top, 0, 0);
+            }
         }
         #endregion
 
@@ -1186,6 +1207,11 @@ namespace Desktop
             }
             vertRowPosition = vertRowPosition - 30;
             lastRowId = lastRowId - 1;
+            if (lastRowId < 7)
+            {
+                if (grdHeaders.Margin.Left == -14)
+                    grdHeaders.Margin = new Thickness(0, grdHeaders.Margin.Top, 0, 0);
+            }
         }
         #endregion
 
