@@ -97,14 +97,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Desktop.exe" size="808872">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Desktop.exe" size="818088">
       <assemblyIdentity name="Desktop" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>NuVEyMsbaBdYR/HPnOSZJzla4nhI7A7hv6vxBU3YCaU=</dsig:DigestValue>
+        <dsig:DigestValue>adMIGcEKlEMm+3xmMs75sJeSuUydiN7l8n/mwraBtPw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -116,7 +116,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>yYbIj79CZeCe8+cI5aId8NHW8KhsXUFJdUWcLarS1FQ=</dsig:DigestValue>
+        <dsig:DigestValue>8l8n75GmVQSyaPdRsYT1onl+qdMahiZ8JXhXHYpx7ao=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -140,7 +140,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>YdOuvVzuF0sr4BG9Eu+g1HEdL1PSjEpxS6mAtlSHUV4=</dsig:DigestValue>
+        <dsig:DigestValue>FXpYIeYcr/RmnQW/VPqwFMjYMY41EMYPi4uby1Ln1Yg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -284,7 +284,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>YgvDZ+JPESc5u0PoDCXfIPWomgSzzWpk5makBU9u1PM=</dsig:DigestValue>
+        <dsig:DigestValue>/O0AfDhJLT9k8AGqamJZO9SXXdeWeoYE+uIx28o5hhQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

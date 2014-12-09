@@ -13,6 +13,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Desktop
@@ -21,11 +22,11 @@ namespace Desktop
     /// Interaction logic for AngebotWindow.xaml
     /// </summary>
     public partial class AngebotWindow : Window
-    {      
+    {
         public int rowId = 0;
         public int vertRowPosition = 10;
         public int lastRowId = 0;
-        
+
         public AngebotWindow()
         {
             InitializeComponent();
@@ -201,8 +202,8 @@ namespace Desktop
             Service.MassServisClient client = new MassServisClient();
             var materijalList = client.getMaterijal();
             var produktList = client.getProdukt();
-           var oberflacheList = client.getPovrsinaByMaterijal(3);
-           var starkeList = client.getDebljinaByProduktId(1);
+            var oberflacheList = client.getPovrsinaByMaterijal(3);
+            var starkeList = client.getDebljinaByProduktId(1);
 
             rowId = rowId + 1;
             TextBox brei = new TextBox();
@@ -224,6 +225,39 @@ namespace Desktop
             Button btnUp = new Button();
             Button btnAddType01 = new Button();
             Button btnAddType02 = new Button();
+            //Button with image arrow down
+            Image imgDown = new Image();
+            BitmapImage biDown = new BitmapImage();
+            biDown.BeginInit();
+            biDown.UriSource = new Uri("images/icons/arrDown.png", UriKind.Relative);
+            biDown.EndInit();
+            imgDown.Source = biDown;
+            imgDown.Width = 13;
+            imgDown.Height = 13;
+            imgDown.Stretch = Stretch.Fill;
+            btnDown.Content = imgDown;
+            //Button with image arrow up
+            Image imgUp = new Image();
+            BitmapImage biUp = new BitmapImage();
+            biUp.BeginInit();
+            biUp.UriSource = new Uri("images/icons/arrUp.png", UriKind.Relative);
+            biUp.EndInit();
+            imgUp.Source = biUp;
+            imgUp.Width = 13;
+            imgUp.Height = 13;
+            imgUp.Stretch = Stretch.Fill;
+            btnUp.Content = imgUp;
+            //Button with image close
+            Image imgClose = new Image();
+            BitmapImage biClose = new BitmapImage();
+            biClose.BeginInit();
+            biClose.UriSource = new Uri("images/icons/btnClose.png", UriKind.Relative);
+            biClose.EndInit();
+            imgClose.Source = biClose;
+            imgClose.Width = 13;
+            imgClose.Height = 13;
+            imgClose.Stretch = Stretch.Fill;
+            myDinamicButton01.Content = imgClose;
 
             brei.Width = 40;
             brei.Height = 25;
@@ -321,7 +355,7 @@ namespace Desktop
             gpreis.Margin = new Thickness(930, vertRowPosition, 0, 0);
             myDinamicButton01.Margin = new Thickness(1030, vertRowPosition, 0, 0);
             btnAddType01.Margin = new Thickness(140, topW, 0, 0);
-            btnAddType02.Margin = new Thickness(240, topW, 0, 0);          
+            btnAddType02.Margin = new Thickness(240, topW, 0, 0);
             btnDown.Margin = new Thickness(1110, vertRowPosition, 0, 0);
             btnUp.Margin = new Thickness(1150, vertRowPosition, 0, 0);
 
@@ -331,7 +365,6 @@ namespace Desktop
             this.RegisterName("txtBoxDruga_" + rowId, lng);
             myDinamicButton01.Name = "btnPrvi_" + rowId;
             this.RegisterName("btnPrvi_" + rowId, myDinamicButton01);
-            myDinamicButton01.Content = "X";
             btnAddType01.Name = "btnAddNew01Row_" + rowId;
             btnAddType01.Content = "Add Row 01";
             this.RegisterName("btnAddNew01Row_" + rowId, btnAddType01);
@@ -343,30 +376,28 @@ namespace Desktop
             this.RegisterName("rd_" + rowId, myLabel01);
             btnDown.Click += btnDown_Click;
             btnDown.Name = "btnDown_" + rowId;
-            btnDown.Content = "D";
             this.RegisterName("btnDown_" + rowId, btnDown);
             btnUp.Click += btnUp_Click;
             btnUp.Name = "btnUp_" + rowId;
-            btnUp.Content = "U";
             this.RegisterName("btnUp_" + rowId, btnUp);
             matT.Name = "matT_" + rowId;
             this.RegisterName("matT_" + rowId, matT);
-            foreach (var p in materijalList) {matT.Items.Add(p.naziv);}
+            foreach (var p in materijalList) { matT.Items.Add(p.naziv); }
             matT.SelectedIndex = 0;
             //Event OnSelectionChanged
             matT.SelectionChanged += matT_SelectionChanged;
             prod.Name = "prod_" + rowId;
             this.RegisterName("prod_" + rowId, prod);
-            foreach (var p in produktList) {prod.Items.Add(p.naziv);}
+            foreach (var p in produktList) { prod.Items.Add(p.naziv); }
             prod.SelectedIndex = 0;
             prod.SelectionChanged += prod_SelectionChanged;
             ober.Name = "ober_" + rowId;
             this.RegisterName("ober_" + rowId, ober);
-            foreach (var p in oberflacheList) {ober.Items.Add(p.pov);}
+            foreach (var p in oberflacheList) { ober.Items.Add(p.pov); }
             ober.SelectedIndex = 0;
             stark.Name = "stark_" + rowId;
             this.RegisterName("stark_" + rowId, stark);
-            foreach (var p in starkeList) {stark.Items.Add(p.naziv);}
+            foreach (var p in starkeList) { stark.Items.Add(p.naziv); }
             stark.SelectedIndex = 0;
             mat.Name = "mat_" + rowId;
             this.RegisterName("mat_" + rowId, mat);
@@ -379,7 +410,7 @@ namespace Desktop
             einz.Name = "einz_" + rowId;
             this.RegisterName("einz_" + rowId, einz);
             stk.Name = "stk_" + rowId;
-            this.RegisterName("stk_" + rowId, stk);        
+            this.RegisterName("stk_" + rowId, stk);
             gpreis.Name = "gpreis_" + rowId;
             this.RegisterName("gpreis_" + rowId, gpreis);
 
@@ -390,7 +421,7 @@ namespace Desktop
             grid01.Children.Add(myDinamicButton01);
             grid01.Children.Add(matT);
             grid01.Children.Add(prod);
-            grid01.Children.Add(myLabel01);           
+            grid01.Children.Add(myLabel01);
             grid01.Children.Add(ober);
             grid01.Children.Add(stark);
             grid01.Children.Add(mat);
@@ -405,9 +436,14 @@ namespace Desktop
 
             vertRowPosition = vertRowPosition + 30;
             scr01.ScrollToBottom();
+            if (rowId > 6)
+            {
+                var marHeaders = grdHeaders.Margin.Left - 30;
+                grdHeaders.Margin = new Thickness(marHeaders, grdHeaders.Margin.Top, 0, 0);
+            }
         }
         #endregion
-        
+
         #region Add Row Type 02
         private void addRowType02()
         {
@@ -427,6 +463,39 @@ namespace Desktop
             TextBox r2einz = new TextBox();
             TextBox r2stk = new TextBox();
             TextBox r2gpreis = new TextBox();
+            //Button with image arrow down
+            Image imgDown = new Image();
+            BitmapImage biDown = new BitmapImage();
+            biDown.BeginInit();
+            biDown.UriSource = new Uri("images/icons/arrDown.png", UriKind.Relative);
+            biDown.EndInit();
+            imgDown.Source = biDown;
+            imgDown.Width = 13;
+            imgDown.Height = 13;
+            imgDown.Stretch = Stretch.Fill;
+            btnDown.Content = imgDown;
+            //Button with image arrow up
+            Image imgUp = new Image();
+            BitmapImage biUp = new BitmapImage();
+            biUp.BeginInit();
+            biUp.UriSource = new Uri("images/icons/arrUp.png", UriKind.Relative);
+            biUp.EndInit();
+            imgUp.Source = biUp;
+            imgUp.Width = 13;
+            imgUp.Height = 13;
+            imgUp.Stretch = Stretch.Fill;
+            btnUp.Content = imgUp;
+            //Button with image close
+            Image imgClose = new Image();
+            BitmapImage biClose = new BitmapImage();
+            biClose.BeginInit();
+            biClose.UriSource = new Uri("images/icons/btnClose.png", UriKind.Relative);
+            biClose.EndInit();
+            imgClose.Source = biClose;
+            imgClose.Width = 13;
+            imgClose.Height = 13;
+            imgClose.Stretch = Stretch.Fill;
+            Row2myDinamicButton01.Content = imgClose;
 
             Row2myDinamicTxtBox01.Visibility = Visibility.Hidden;
             Row2myDinamicTxtBox01.Width = 210;
@@ -507,16 +576,13 @@ namespace Desktop
             Row2myDinamicButton01.Name = "row2Btn_" + rowId;
             Row2myDinamicButton01.DataContext = grid01;
             this.RegisterName("row2Btn_" + rowId, Row2myDinamicButton01);
-            Row2myDinamicButton01.Content = "X";
             myLabel01.Name = "rd_" + rowId;
             this.RegisterName("rd_" + rowId, myLabel01);
             btnDown.Click += btnDown_Click;
             btnDown.Name = "btnDown_" + rowId;
-            btnDown.Content = "D";
             this.RegisterName("btnDown_" + rowId, btnDown);
             btnUp.Click += btnUp_Click;
             btnUp.Name = "btnUp_" + rowId;
-            btnUp.Content = "U";
             this.RegisterName("btnUp_" + rowId, btnUp);
             r2First.Name = "r2First_" + rowId;
             this.RegisterName("r2First_" + rowId, r2First);
@@ -564,7 +630,7 @@ namespace Desktop
         #endregion
 
         #region Add Row Type 03
-        private void addRowType03() 
+        private void addRowType03()
         {
             rowId = rowId + 1;
             Label myLabel01 = new Label();
@@ -573,6 +639,39 @@ namespace Desktop
             Button Row3myDinamicButton01 = new Button();
             Button btnDown = new Button();
             Button btnUp = new Button();
+            //Button with image arrow down
+            Image imgDown = new Image();
+            BitmapImage biDown = new BitmapImage();
+            biDown.BeginInit();
+            biDown.UriSource = new Uri("images/icons/arrDown.png", UriKind.Relative);
+            biDown.EndInit();
+            imgDown.Source = biDown;
+            imgDown.Width = 13;
+            imgDown.Height = 13;
+            imgDown.Stretch = Stretch.Fill;
+            btnDown.Content = imgDown;
+            //Button with image arrow up
+            Image imgUp = new Image();
+            BitmapImage biUp = new BitmapImage();
+            biUp.BeginInit();
+            biUp.UriSource = new Uri("images/icons/arrUp.png", UriKind.Relative);
+            biUp.EndInit();
+            imgUp.Source = biUp;
+            imgUp.Width = 13;
+            imgUp.Height = 13;
+            imgUp.Stretch = Stretch.Fill;
+            btnUp.Content = imgUp;
+            //Button with image close
+            Image imgClose = new Image();
+            BitmapImage biClose = new BitmapImage();
+            biClose.BeginInit();
+            biClose.UriSource = new Uri("images/icons/btnClose.png", UriKind.Relative);
+            biClose.EndInit();
+            imgClose.Source = biClose;
+            imgClose.Width = 13;
+            imgClose.Height = 13;
+            imgClose.Stretch = Stretch.Fill;
+            Row3myDinamicButton01.Content = imgClose;
 
             myLabel01.Width = 30;
             myLabel01.Height = 25;
@@ -610,14 +709,11 @@ namespace Desktop
             this.RegisterName("r3First_" + rowId, r3First);
             Row3myDinamicButton01.Name = "row3Btn_" + rowId;
             this.RegisterName("row3Btn_" + rowId, Row3myDinamicButton01);
-            Row3myDinamicButton01.Content = "X";
             btnDown.Click += btnDown_Click;
             btnDown.Name = "btnDown_" + rowId;
-            btnDown.Content = "D";
             this.RegisterName("btnDown_" + rowId, btnDown);
             btnUp.Click += btnUp_Click;
             btnUp.Name = "btnUp_" + rowId;
-            btnUp.Content = "U";
             this.RegisterName("btnUp_" + rowId, btnUp);
 
             lastRowId = lastRowId + 1;
@@ -644,7 +740,7 @@ namespace Desktop
             TextBox Cell01 = (TextBox)this.FindName("txtBoxPrva_" + btnIndex);
             TextBox Cell02 = (TextBox)this.FindName("txtBoxDruga_" + btnIndex);
             Button Cell03 = (Button)this.FindName("btnPrvi_" + btnIndex);
-            Label Cell04 = (Label)this.FindName("rd_" + btnIndex);           
+            Label Cell04 = (Label)this.FindName("rd_" + btnIndex);
             Button Cell05 = (Button)this.FindName("btnDown_" + btnIndex);
             Button Cell06 = (Button)this.FindName("btnUp_" + btnIndex);
             ComboBox Cell07 = (ComboBox)this.FindName("matT_" + btnIndex);
@@ -667,8 +763,8 @@ namespace Desktop
             Cell06.UnregisterName(Cell06.Name);
             Cell07.UnregisterName(Cell07.Name);
             Cell08.UnregisterName(Cell08.Name);
-            Cell09.UnregisterName(Cell09.Name); 
-            Cell10.UnregisterName(Cell10.Name); 
+            Cell09.UnregisterName(Cell09.Name);
+            Cell10.UnregisterName(Cell10.Name);
             Cell11.UnregisterName(Cell11.Name);
             Cell12.UnregisterName(Cell12.Name);
             Cell13.UnregisterName(Cell13.Name);
@@ -838,7 +934,7 @@ namespace Desktop
             grid01.UnregisterName(Cell13.Name);
             grid01.UnregisterName(Cell14.Name);
             grid01.UnregisterName(Cell15.Name);
-            
+
             grid01.Children.Remove(Cell01);
             grid01.Children.Remove(Cell03);
             grid01.Children.Remove(Cell04);
@@ -892,7 +988,7 @@ namespace Desktop
                         TextBox Type02Cell011 = (TextBox)this.FindName("r2gpreis_" + rID);
                         //Row type 03
                         TextBox Type03Cell01 = (TextBox)this.FindName("r3First_" + rID);
-                        Button Type03Cell02 = (Button)this.FindName("row3Btn_"+ rID);
+                        Button Type03Cell02 = (Button)this.FindName("row3Btn_" + rID);
                         if (Type01Cell001 != null)
                         {
                             //For row type 01
@@ -941,7 +1037,7 @@ namespace Desktop
                             Type02Cell011.Margin = new Thickness(930, newTopPosition, 0, 0);
                         }
                         //For row type 03
-                        else if(Type03Cell01 != null)
+                        else if (Type03Cell01 != null)
                         {
                             var currentTopPosition = Type03Cell01.Margin.Top;
                             var newTopPosition = currentTopPosition - 30;
@@ -984,12 +1080,12 @@ namespace Desktop
             grid01.Children.Remove(Cell04);
             grid01.Children.Remove(Cell05);
 
-            for (int i = 0; i <= rowId; i++) 
+            for (int i = 0; i <= rowId; i++)
             {
                 Label Cell000 = (Label)this.FindName("rd_" + i);
                 if (Cell000 != null)
                 {
-                    if(Convert.ToInt32(Cell03.Content) < Convert.ToInt32(Cell000.Content))
+                    if (Convert.ToInt32(Cell03.Content) < Convert.ToInt32(Cell000.Content))
                     {
                         int rID = Convert.ToInt32(Cell000.Name.Split('_').Last());
                         TextBox Type01Cell001 = (TextBox)this.FindName("txtBoxPrva_" + rID);
@@ -1204,7 +1300,7 @@ namespace Desktop
             Button Type01Cell003Below = (Button)this.FindName("btnPrvi_" + btnIndexBelow);
             Label Type01Cell004Below = (Label)this.FindName("rd_" + btnIndexBelow);
             Button Type01Cell005Below = (Button)this.FindName("btnDown_" + btnIndexBelow);
-            Button Type01Cell006Below = (Button)this.FindName("btnUp_" + btnIndexBelow);           
+            Button Type01Cell006Below = (Button)this.FindName("btnUp_" + btnIndexBelow);
             ComboBox Type01Cell007Below = (ComboBox)this.FindName("matT_" + btnIndexBelow);
             ComboBox Type01Cell008Below = (ComboBox)this.FindName("prod_" + btnIndexBelow);
             ComboBox Type01Cell009Below = (ComboBox)this.FindName("ober_" + btnIndexBelow);
@@ -1300,7 +1396,7 @@ namespace Desktop
                     Type02Cell0010btnIndexBelow.Margin = new Thickness(880, newTopPositionUp, 0, 0);
                     Type02Cell0011btnIndexBelow.Margin = new Thickness(930, newTopPositionUp, 0, 0);
                 }
-                else if (tipReda == 3) 
+                else if (tipReda == 3)
                 {
                     var currentTopPositionBelow = Type03Cell001btnIndexBelow.Margin.Top;
                     var newTopPositionUp = currentTopPositionBelow - 30;
@@ -1391,7 +1487,7 @@ namespace Desktop
                     Type03Cell002btnIndexBelow.Margin = new Thickness(1030, newTopPositionUp, 0, 0);
                 }
             }
-            else if(Type03Cell001 != null)
+            else if (Type03Cell001 != null)
             {
                 var currentTopPosition = Type03Cell001.Margin.Top;
                 var newTopPositionDown = currentTopPosition + 30;
@@ -1403,7 +1499,7 @@ namespace Desktop
                 Type01Cell005.Margin = new Thickness(1110, newTopPositionDown, 0, 0);
                 Type01Cell006.Margin = new Thickness(1150, newTopPositionDown, 0, 0);
 
-                if (tipReda == 1) 
+                if (tipReda == 1)
                 {
                     var currentTopPositionBelow = Type01Cell001Below.Margin.Top;
                     var newTopPositionUp = currentTopPositionBelow - 30;
@@ -1427,7 +1523,7 @@ namespace Desktop
                     Type01Cell0016Below.Margin = new Thickness(880, newTopPositionUp, 0, 0);
                     Type01Cell0017Below.Margin = new Thickness(930, newTopPositionUp, 0, 0);
                 }
-                else if (tipReda == 2) 
+                else if (tipReda == 2)
                 {
                     var currentTopPositionBelow = Type02Cell001btnIndexBelow.Margin.Top;
                     var newTopPositionUp = currentTopPositionBelow - 30;
@@ -1448,7 +1544,7 @@ namespace Desktop
                     Type02Cell0010btnIndexBelow.Margin = new Thickness(880, newTopPositionUp, 0, 0);
                     Type02Cell0011btnIndexBelow.Margin = new Thickness(930, newTopPositionUp, 0, 0);
                 }
-                else if (tipReda == 3) 
+                else if (tipReda == 3)
                 {
                     var currentTopPositionBelow = Type03Cell001btnIndexBelow.Margin.Top;
                     var newTopPositionUp = currentTopPositionBelow - 30;
@@ -1729,7 +1825,7 @@ namespace Desktop
                     Type03Cell002btnIndexBelow.Margin = new Thickness(1030, newTopPositionUp, 0, 0);
                 }
             }
-            else if (Type03Cell001 != null) 
+            else if (Type03Cell001 != null)
             {
                 var currentTopPosition = Type03Cell001.Margin.Top;
                 var newTopPositionDown = currentTopPosition - 30;
@@ -1740,7 +1836,7 @@ namespace Desktop
                 Type01Cell004.Margin = new Thickness(5, newTopPositionDown, 0, 0);
                 Type01Cell005.Margin = new Thickness(1110, newTopPositionDown, 0, 0);
                 Type01Cell006.Margin = new Thickness(1150, newTopPositionDown, 0, 0);
-                if (tipReda == 1) 
+                if (tipReda == 1)
                 {
                     var currentTopPositionBelow = Type01Cell001Below.Margin.Top;
                     var newTopPositionUp = currentTopPositionBelow + 30;
@@ -1764,7 +1860,7 @@ namespace Desktop
                     Type01Cell0016Below.Margin = new Thickness(880, newTopPositionUp, 0, 0);
                     Type01Cell0017Below.Margin = new Thickness(930, newTopPositionUp, 0, 0);
                 }
-                else if (tipReda == 2) 
+                else if (tipReda == 2)
                 {
                     var currentTopPositionBelow = Type02Cell001btnIndexBelow.Margin.Top;
                     var newTopPositionUp = currentTopPositionBelow + 30;
@@ -1785,7 +1881,7 @@ namespace Desktop
                     Type02Cell0010btnIndexBelow.Margin = new Thickness(880, newTopPositionUp, 0, 0);
                     Type02Cell0011btnIndexBelow.Margin = new Thickness(930, newTopPositionUp, 0, 0);
                 }
-                else if (tipReda == 3) 
+                else if (tipReda == 3)
                 {
                     var currentTopPositionBelow = Type03Cell001btnIndexBelow.Margin.Top;
                     var newTopPositionUp = currentTopPositionBelow + 30;
@@ -1799,7 +1895,7 @@ namespace Desktop
                 }
             }
         }
-        #endregion       
+        #endregion
 
         #region Material Type Changed
         private void matT_SelectionChanged(object sender, SelectionChangedEventArgs args)
@@ -1819,19 +1915,19 @@ namespace Desktop
         #endregion
 
         #region Produkt Changed
-        private void prod_SelectionChanged(object sender, SelectionChangedEventArgs arg) 
+        private void prod_SelectionChanged(object sender, SelectionChangedEventArgs arg)
         {
-        var obj = sender as ComboBox;
-        int rowId = Convert.ToInt32(obj.Name.Split('_').Last());
-        string value = obj.SelectedValue.ToString();
-        Service.MassServisClient client = new MassServisClient();
-        var proId = client.getProIdByName(value);
-        int prodVal01 = proId[0].idprodukt;
-        var starkeList = client.getDebljinaByProduktId(prodVal01);
-        ComboBox Cell01 = (ComboBox)this.FindName("stark_" + rowId);
-        Cell01.Items.Clear();
-        foreach (var p in starkeList) { Cell01.Items.Add(p.naziv); };
-        Cell01.SelectedIndex = 0;
+            var obj = sender as ComboBox;
+            int rowId = Convert.ToInt32(obj.Name.Split('_').Last());
+            string value = obj.SelectedValue.ToString();
+            Service.MassServisClient client = new MassServisClient();
+            var proId = client.getProIdByName(value);
+            int prodVal01 = proId[0].idprodukt;
+            var starkeList = client.getDebljinaByProduktId(prodVal01);
+            ComboBox Cell01 = (ComboBox)this.FindName("stark_" + rowId);
+            Cell01.Items.Clear();
+            foreach (var p in starkeList) { Cell01.Items.Add(p.naziv); };
+            Cell01.SelectedIndex = 0;
         }
         #endregion
         #endregion
