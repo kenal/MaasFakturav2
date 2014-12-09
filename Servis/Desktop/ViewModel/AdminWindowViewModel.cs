@@ -10,6 +10,7 @@ using Servis.HelperClass;
 using System.Collections.ObjectModel;
 using System.Data;
 using System.Windows;
+using Mass.Data;
 
 namespace Desktop.ViewModel
 {

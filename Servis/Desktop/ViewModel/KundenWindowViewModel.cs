@@ -10,6 +10,7 @@ using System.Windows.Input;
 using System.Collections.ObjectModel;
 using System.Data;
 using System.Windows;
+using Mass.Data;
 namespace Desktop.ViewModel
 {
     public class KundenWindowViewModel: INotifyPropertyChanged, IDataErrorInfo

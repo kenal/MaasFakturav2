@@ -347,51 +347,25 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="Desktop_TemporaryKey.pfx" />
+    <None Include="Properties\DataSources\Mass.Data.p_get_User_ViewResult.datasource" />
+    <None Include="Properties\DataSources\Mass.Data.tbl_debljina.datasource" />
+    <None Include="Properties\DataSources\Mass.Data.tbl_dobavljac.datasource" />
+    <None Include="Properties\DataSources\Mass.Data.tbl_greske.datasource" />
+    <None Include="Properties\DataSources\Mass.Data.tbl_korisnik.datasource" />
+    <None Include="Properties\DataSources\Mass.Data.tbl_kupac.datasource" />
+    <None Include="Properties\DataSources\Mass.Data.tbl_materijal.datasource" />
+    <None Include="Properties\DataSources\Mass.Data.tbl_mit_kalendar.datasource" />
+    <None Include="Properties\DataSources\Mass.Data.tbl_poruka_poslane.datasource" />
+    <None Include="Properties\DataSources\Mass.Data.tbl_poruka_primljene.datasource" />
+    <None Include="Properties\DataSources\Mass.Data.tbl_povrsina.datasource" />
+    <None Include="Properties\DataSources\Mass.Data.tbl_produkt.datasource" />
+    <None Include="Properties\DataSources\Mass.Data.tbl_radnik.datasource" />
     <None Include="Properties\DataSources\System.Data.DataSet.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
-    <None Include="Service References\Service\Desktop.Service.p_get_User_ViewResult.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\Service\Desktop.Service.tbl_debljina.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\Service\Desktop.Service.tbl_dobavljac.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\Service\Desktop.Service.tbl_greske.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\Service\Desktop.Service.tbl_korisnik.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\Service\Desktop.Service.tbl_kupac.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\Service\Desktop.Service.tbl_materijal.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\Service\Desktop.Service.tbl_mit_kalendar.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\Service\Desktop.Service.tbl_poruka_poslane.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\Service\Desktop.Service.tbl_poruka_primljene.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\Service\Desktop.Service.tbl_povrsina.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\Service\Desktop.Service.tbl_produkt.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\Service\Desktop.Service.tbl_radnik.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Service References\Service\MassServis.wsdl" />
     <None Include="Service References\Service\MassServis.xsd">
       <SubType>Designer</SubType>

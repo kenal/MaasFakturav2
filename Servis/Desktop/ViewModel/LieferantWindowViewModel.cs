@@ -8,6 +8,7 @@ using Desktop.Service;
 using System.Windows.Input;
 using Servis.HelperClass;
 using System.Collections.ObjectModel;
+using Mass.Data;
 
 namespace Desktop.ViewModel
 {
